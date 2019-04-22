@@ -1,0 +1,49 @@
+*[role="form"] {
+    max-width: 400px;
+    padding: 25px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f3f7;
+}
+
+*[role="form"] h2 { 
+    /*font-family: 'Open Sans' , sans-serif;*/
+    /* font-size: 40px; */
+    font-weight: 600;
+    color: #242487;
+         margin: 0 0 15px;
+    text-align: center;
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 4px;*/
+}
+
+.signup-form h2:before, .signup-form h2:after{
+    content: "";
+    height: 2px;
+    width: 30%;
+    background: #d4d4d4;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+}   
+
+.indent_p {
+     padding-left: 1em
+}
+
+.button1 {
+    background-color: #242487;
+    border-radius: 3px;
+    display: block;
+    margin-left: 5%;
+    width: 90%;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 18px;
+    font: Segoe ui;
+  }
+

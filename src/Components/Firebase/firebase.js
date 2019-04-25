@@ -54,6 +54,26 @@ class Firebase {
         console.log("successfully addded data");
       });
   };
+
+
+  doDisplayWorker=async()=>{
+    try{
+        const snapshot= await this.database.collection("Customers").get()     
+        snapshot.docs.map((doc)=>{
+          const datas=doc.data()
+          console.log(datas['email'])
+        })
+     }
+  catch(error){
+  }}
+
+
 }
+
+
+
+
+
+
 
 export default Firebase;

@@ -4,6 +4,8 @@ import './WorkersMain.css';
 class WorkersMain extends Component {
     state = {  }
     render() { 
+      this.props.firebase.doDisplayWorker()
+
         return (
           <React.Fragment>
             <br></br>

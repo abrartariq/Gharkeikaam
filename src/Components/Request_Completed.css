@@ -1,0 +1,17 @@
+.text-left{
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.card.bg-light.text-dark{
+    width: 50%;
+    margin-top: 5%;
+}
+
+.btn.btn-primary.c{
+    width: 30%;
+    margin-bottom: 5%;
+    margin-left: 4%;
+    margin-top: 0%;
+}

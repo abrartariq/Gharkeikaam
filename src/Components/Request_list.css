@@ -1,0 +1,27 @@
+.card{
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.row{
+    margin-top: 3%;
+    margin-left: 1%;
+    margin-right:1%;
+    margin-bottom: 5%;
+}
+
+.btn{
+    background-color: #242487;
+    border-color: #242487;
+    text-decoration-color: white;
+    font-size: 13px;
+    margin-left: 29%;
+    margin-top: 5%;
+}
+
+.form-group.a{
+    width: 30%;
+    margin: 50px auto;
+    margin-bottom: 0; 
+}

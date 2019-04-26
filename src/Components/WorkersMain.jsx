@@ -1,12 +1,54 @@
 import React, { Component } from 'react';
 import './WorkersMain.css';
 
+
+const INITIAL_STATE = {
+ 
+  id: "1",
+  workers:[],
+};
+
+
+
+
 class WorkersMain extends Component {
     state = {  }
-    render() { 
-      this.props.firebase.doDisplayWorker()
+    constructor(props) {
+      super(props);
+      this.state = { ...INITIAL_STATE };
+      
+    }
+    
 
-        return (
+    componentWillMount(){
+      var neworkers=this.state.workers.slice()
+      const self=this
+      this.props.firebase.doDisplayWorker().then(function (names){  
+        console.log(self.state.workers)      
+        names.map((each)=>{
+          neworkers.push(each)
+        }) 
+        self.setState( {workers:neworkers} )
+      })
+      }
+
+    
+    render() { 
+     
+  
+      const lists=this.state.workers.map((each)=>{
+       return (
+          <tr>
+        <td>14356</td>
+        <td>{ each }</td>
+        <td><a href='#'>View Details</a></td>
+        <td> <button type="submit" className="button-del" >Delete</button></td>
+      </tr>)
+
+      });
+       
+      
+        return (  
           <React.Fragment>
             <br></br>
             <h2>Workers List</h2>
@@ -19,51 +61,11 @@ class WorkersMain extends Component {
         <th>ID</th>
         <th>Name</th>
       </tr>
+      { lists }
     </thead>
     <tbody>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del" >Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      <tr>
-        <td>14356</td>
-        <td>Abrar Tariq</td>
-        <td><a href='#'>View Details</a></td>
-        <td> <button type="submit" className="button-del">Delete</button></td>
-      </tr>
-      
+
+     
     </tbody>
   </table>
 </div>

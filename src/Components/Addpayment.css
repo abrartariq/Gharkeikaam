@@ -1,0 +1,13 @@
+.form-group.payment{
+    width: 30%;
+    margin-left: 4.5%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.btn.btn-primary.d{
+    width: 30%;
+    margin-bottom: 5%;
+    margin-left: 4.5%;
+    margin-top: 0%;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./SignIn.css";
+import { withRouter } from 'react-router-dom';
 import * as ROUTES from "../constants/routes";
 import { userInfo } from "os";
 import firebase from "firebase";
@@ -25,15 +26,24 @@ class SignIn extends Component {
         var emailVerified = user.emailVerified;
         if (emailVerified == true) {
           console.log("VERIFIED");
+
         } else {
           console.log("NOT VERIFIED");
         }
+        
+        this.props.history.push({
+          pathname: ROUTES.WELCOME,
+          search: 'name=jhon&amp;age=24',
+          state: { detail: email }
+         });
 
         console.log("Successfully log in");
         this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
-        console.log("Wrong Password");
+        console.log("Error ");
+        console.log(error);
+        
         this.setState({ error });
       });
     console.log("submitted" + this.state.email + " " + this.state.password);
@@ -45,6 +55,8 @@ class SignIn extends Component {
   };
 
   render() {
+
+
     return (
       <div className="signup-form">
         <form role="form" onSubmit={this.onSubmit}>
@@ -89,4 +101,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

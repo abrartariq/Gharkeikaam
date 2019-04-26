@@ -1,0 +1,16 @@
+.about h2{
+    color: #242487;
+    margin: 0 0 30px;
+    position: relative;
+    text-align: left;
+    margin-left: 50px;
+
+}
+
+.about p{
+    color: black;
+    margin: 0 0 30px;
+    position: relative;
+    text-align: justify;
+    margin-left: 50px;
+}

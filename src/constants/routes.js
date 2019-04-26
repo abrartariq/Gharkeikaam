@@ -8,3 +8,4 @@ export const REQUESTS = '/requests';
 export const ID5 = '/id=5';
 export const COMPLETE_REQUEST = '/complete-request';
 export const PAYMENT = '/payment';
+export const ABOUT = '/about';

@@ -18,7 +18,6 @@ class WorkersMain extends Component {
       this.state = { ...INITIAL_STATE };
       
     }
-    
 
     componentWillMount(){
       var neworkers=this.state.workers.slice()
@@ -34,8 +33,6 @@ class WorkersMain extends Component {
 
     
     render() { 
-     
-  
       const lists=this.state.workers.map((each)=>{
        return (
           <tr>

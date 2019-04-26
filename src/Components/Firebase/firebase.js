@@ -97,8 +97,24 @@ class Firebase {
     console.log('data not fetched')
   }
 }
+getAdminRequestPending=async()=>{
+try{
+
+  const snapshot= await this.database.collection("CurrentRequests").get()
+  snapshot.docs.map((doc)=>{
+    const datas=doc.data()
+    console.log(datas)
+    
+  })
+} 
+catch(error){
+
+} }
+
 
 }
+
+
 
 
 

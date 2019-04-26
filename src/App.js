@@ -10,7 +10,7 @@ import Requests_App from './pages/Requests_App';
 import Request_ID_5 from './pages/Request_ID_5';
 import Complete_Request from './pages/Complete_Request';
 import Payment from './pages/Payment';
-
+import About from './pages/About';
 import * as ROUTES from './constants/routes';
 import { Route, BrowserRouter, Switch} from 'react-router-dom';
 import './App.css';
@@ -32,6 +32,7 @@ class App extends Component {
 		<Route path={ROUTES.ID5} component={Request_ID_5} />
 		<Route path={ROUTES.COMPLETE_REQUEST} component={Complete_Request} />
     <Route path={ROUTES.PAYMENT} component={Payment} />
+		<Route path={ROUTES.ABOUT} component={About} />
 
 	</Switch>
 

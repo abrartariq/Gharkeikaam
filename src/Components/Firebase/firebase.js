@@ -52,6 +52,9 @@ class Firebase {
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+  getdatabase=()=>{
+    return this.database  
+  }
 
   // getdata = dbjson =>{
   //   var docRef = db.collection("cities").doc("SF")
@@ -100,7 +103,7 @@ class Firebase {
 getAdminRequestPending=async()=>{
 try{
   let adminrequests={}
-  const snapshot= await this.database.collection("CurrentRequests").where("status","==","completed").get()
+  const snapshot= await this.database.collection("CurrentRequests").where("status","==","pending").get()
   snapshot.docs.map((doc)=>{
     const datas=doc.data()
     adminrequests[doc.id]=[]
@@ -115,6 +118,24 @@ try{
 catch(error){
 
 } }
+
+getupdateadminpending=()=>{
+   this.database.collection("CurrentRequests").onSnapshot(function(snapshot){
+    let adminrequests={}
+    snapshot.docs.map((doc)=>{
+      const datas=doc.data()
+      adminrequests[doc.id]=[]
+      adminrequests[doc.id].push(doc.id)
+      adminrequests[doc.id].push(datas['service'])
+      adminrequests[doc.id].push(datas['status'])
+      console.log(doc.id)  
+    })
+    
+    return adminrequests
+  
+  })
+ 
+}
 
 
 }

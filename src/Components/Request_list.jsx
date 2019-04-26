@@ -3,7 +3,9 @@ import './Request_list.css';
 import { request } from 'http';
 
 const INITIAL_STATE = {
-    adminrequests:{}
+    adminrequestspending:{},
+    adminrequestsinprogress:{},
+    adminrequestsincompleted:{},
   };
 
 
@@ -17,29 +19,105 @@ constructor(props) {
   }
 
   componentWillMount(){
+        let database=this.props.firebase.getdatabase()
+        const self=this
+        database.collection("CurrentRequests").where("status","==","pending").onSnapshot(function(snapshot){
+        let adminrequestss={}
+        snapshot.docs.map((doc)=>{
+        const datas=doc.data()
+        adminrequestss[doc.id]=[]
+        adminrequestss[doc.id].push(doc.id)
+        adminrequestss[doc.id].push(datas['service'])
+        adminrequestss[doc.id].push(datas['status'])
+          
+    })
+        self.setState( {adminrequestspending:adminrequestss} )
+        })
+
+
+        database.collection("CurrentRequests").where("status","==","inprogress").onSnapshot(function(snapshot){
+            let adminrequestss={}
+            snapshot.docs.map((doc)=>{
+            const datas=doc.data()
+            adminrequestss[doc.id]=[]
+            adminrequestss[doc.id].push(doc.id)
+            adminrequestss[doc.id].push(datas['service'])
+            adminrequestss[doc.id].push(datas['status'])
+              
+        })
+            self.setState( {adminrequestsinprogress:adminrequestss} )
+            })
+
+            database.collection("CurrentRequests").where("status","==","completed").onSnapshot(function(snapshot){
+                let adminrequestss={}
+                snapshot.docs.map((doc)=>{
+                const datas=doc.data()
+                adminrequestss[doc.id]=[]
+                adminrequestss[doc.id].push(doc.id)
+                adminrequestss[doc.id].push(datas['service'])
+                adminrequestss[doc.id].push(datas['status'])
+                  
+            })
+                self.setState( {adminrequestsincompleted:adminrequestss} )
+                })
+
+            
+
+   }
+
+
+updateadmin=()=>{
     var newrequests={}
     const self=this
-    this.props.firebase.getAdminRequestPending().then(function (requests){  
+    this.props.firebase.getupdateadminpending().then(function (requests){  
        
       self.setState( {adminrequests:requests} )
     })
     }
+   
 
 
 render() { 
-    const pending=Object.keys(this.state.adminrequests).map((key)=>{
+    const pending=Object.keys(this.state.adminrequestspending).map((key)=>{
         return (
             <p className="list-group-item text-left font-weight-bold">
-            Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequests[key][0]} </div> <br/>
-            Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequests[key][1]} </div> <br/>
-            Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequests[key][2]}</div> <br/>
+            Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][0]} </div> <br/>
+            Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][1]} </div> <br/>
+            Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][2]}</div> <br/>
         <a href="#" class="btn btn-primary">View Request</a>
         <br />
         </p>
         )
  
        });
-   
+
+
+       const inprogress=Object.keys(this.state.adminrequestsinprogress).map((key)=>{
+        return (
+            <p className="list-group-item text-left font-weight-bold">
+            Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][0]} </div> <br/>
+            Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][1]} </div> <br/>
+            Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][2]}</div> <br/>
+        <a href="#" class="btn btn-primary">View Request</a>
+        <br />
+        </p>
+        )
+       });
+
+
+       const completed=Object.keys(this.state.adminrequestsincompleted).map((key)=>{
+        return (
+            <p className="list-group-item text-left font-weight-bold">
+            Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][0]} </div> <br/>
+            Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][1]} </div> <br/>
+            Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][2]}</div> <br/>
+        <a href="#" class="btn btn-primary">View Request</a>
+        <br />
+        </p>
+        )
+ 
+       });
+       
 return ( 
 <div>
     <div className="form-group a">
@@ -57,22 +135,12 @@ return (
 
             <div className="col-sm-4">
                 <h6>In Progress Requests</h6><br/>
-                <p className="list-group-item text-left font-weight-bold">
-                    Request ID: <div className= "list-inline-item font-weight-normal">4</div> <br/>
-                    Service: <div className= "list-inline-item font-weight-normal">Plumber</div> <br/>
-                    Status: <div className= "list-inline-item font-weight-normal">In Progress </div> <br/>
-                <a href="#" class="btn btn-primary">View Request</a>
-                </p><br/>               
+                { inprogress }          
             </div>
 
             <div className="col-sm-4">
                 <h6>Completed Requests</h6><br/>
-                <p className="list-group-item text-left font-weight-bold">
-                    Request ID: <div className= "list-inline-item font-weight-normal">2</div> <br/>
-                    Service: <div className= "list-inline-item font-weight-normal">Gardener</div> <br/>
-                    Status: <div className= "list-inline-item font-weight-normal">Completed </div> <br/>
-                <a href="#" class="btn btn-primary">View Request</a>
-                </p><br/>             
+                { completed }
             </div>
         </div>
     </div>

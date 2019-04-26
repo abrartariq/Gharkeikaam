@@ -23,7 +23,6 @@ class WorkersMain extends Component {
       var neworkers=this.state.workers.slice()
       const self=this
       this.props.firebase.doDisplayWorker().then(function (names){  
-        console.log(self.state.workers)      
         names.map((each)=>{
           neworkers.push(each)
         }) 

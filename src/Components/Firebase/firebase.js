@@ -99,13 +99,18 @@ class Firebase {
 }
 getAdminRequestPending=async()=>{
 try{
-
-  const snapshot= await this.database.collection("CurrentRequests").get()
+  let adminrequests={}
+  const snapshot= await this.database.collection("CurrentRequests").where("status","==","completed").get()
   snapshot.docs.map((doc)=>{
     const datas=doc.data()
-    console.log(datas)
-    
+    adminrequests[doc.id]=[]
+    adminrequests[doc.id].push(doc.id)
+    adminrequests[doc.id].push(datas['service'])
+    adminrequests[doc.id].push(datas['status'])  
   })
+  console.log(adminrequests)
+  console.log('done')
+  return adminrequests
 } 
 catch(error){
 

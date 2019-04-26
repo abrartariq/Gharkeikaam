@@ -14,10 +14,9 @@ class Login_Page_App extends Component {
 		<Header/>
 		{
 	     	<div className="row">
-		    	<div className="col-12 col-md-8"><Homeimage/></div>
 					
+		    	<div className="col-12 col-md-8"><Homeimage/></div>
 		    	<div className="col-6 col-md-4"><FirebaseContext.Consumer>
-            
             
             {firebase => <SignIn firebase={firebase} />}
             </FirebaseContext.Consumer>  </div>

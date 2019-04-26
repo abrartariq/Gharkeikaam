@@ -3,6 +3,22 @@ import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
 
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr;
+  if (this.length === 0) return hash;
+  for (i = 0; i < this.length; i++) {
+      chr   = this.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash =  hash % 6700417; // Convert to 32bit integer
+      if(hash < 0){
+          hash = hash * -1
+      }
+  }
+  return hash.toString();
+};
+
+
 // Initialize Firebase
 const config = {
   apiKey: "AIzaSyB2nWP2RFdh2XIm-I8Uk8o_RYOmkEOu8tg",
@@ -37,11 +53,19 @@ class Firebase {
 
   doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 
+  // getdata = dbjson =>{
+  //   var docRef = db.collection("cities").doc("SF")
+  // }
+
+
+
   doSaveNewUser = information => {
     console.log(information);
+    console.log("HASHSASA",information.email.hashCode())
     this.database
       .collection("Customers")
-      .add({
+      .doc(information.email.hashCode())
+      .set({
         firstname: information.firstname,
         lastname: information.lastname,
         password: information.password,
@@ -52,11 +76,12 @@ class Firebase {
       })
       .then(() => {
         console.log("successfully addded data");
+      })
+      .catch((error) =>{
+        console.log("FB ERRR",error)
       });
-  }
-
-
-   doDisplayWorker=async()=>{
+  };
+  doDisplayWorker=async()=>{
     try{
         const snapshot= await this.database.collection("Customers").get()  
         var names=[]   
@@ -70,11 +95,24 @@ class Firebase {
   catch(error){
     console.log(error)
     console.log('data not fetched')
-  }}
+  }
+}
+getAdminRequestPending=async()=>{
+try{
+
+  const snapshot= await this.database.collection("CurrentRequests").get()
+  snapshot.docs.map((doc)=>{
+    const datas=doc.data()
+    console.log(datas)
+    
+  })
+} 
+catch(error){
+
+} }
 
 
 }
-
 
 
 

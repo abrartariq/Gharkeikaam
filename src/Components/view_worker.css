@@ -1,0 +1,111 @@
+.form-control{
+    box-shadow: none;
+    color: #969fa4;
+}
+.form-control:focus{
+    border-color: #242487;
+}
+.form-control{        
+    border-radius: 3px;
+}
+
+.button-workerview {
+    background-color: #242487;
+    float: left;
+    border-radius: 3px;
+    width: 40%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font: Segoe ui;
+  }
+.viewworker-form{
+    width: 40%;
+    height: auto;
+    margin-left: 30%;
+    padding: 30px 0;
+}
+.viewworker-form h2{
+    color: #242487;
+    margin: 0 0 15px;
+    position: relative;
+    text-align: center;
+}
+.viewworker-form p{
+    color: #242487;
+    margin: 0 0 15px;
+    position: relative;
+    text-align: left;
+}
+.viewworker-form h2:before, .viewworker-form h2:after{
+    content: "";
+    height: 2px;
+    width: 30%;
+    background: #d4d4d4;
+    position: relative;
+    top: 20%;
+    z-index: 2;
+}	
+.viewworker-form h2:before{
+    left: 0;
+}
+.viewworker-form h2:after{
+    right: 0;
+}
+.viewworker-form .hint-text{
+    color: #999;
+    margin-bottom: 90px;
+    text-align: center;
+}
+.viewworker-form form{
+    color: #999;
+    border-radius: 3px;
+    margin-top: 5px;
+    background: #f2f3f7;
+    height: 620px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.viewworker-form .form-group{
+    margin-bottom: 20%;
+}
+.viewworker-form input[type="checkbox"]{
+    margin-top: 3px;
+}
+.viewworker-form .btn{        
+    font-size: 16px;
+    font-weight: bold;		
+    min-width: 140px;
+    outline: none !important;
+}
+.viewworker-form .row div:first-child{
+    padding-right: 10px;
+}
+.viewworker-form .row div:last-child{
+    padding-left: 10px;
+}    	
+.viewworker-form a{
+    color: #fff;
+    text-decoration: underline;
+}
+.viewworker-form a:hover{
+    text-decoration: none;
+}
+.viewworker-form form a{
+    color: #242487;
+    text-decoration: none;
+}	
+.viewworker-form form a:hover{
+    text-decoration: underline;
+}  
+.img-fluid-worker {
+    width: 30%;
+    float: left;
+    align-self: left;
+    /* margin-bottom: 90px; */
+  }
+ 

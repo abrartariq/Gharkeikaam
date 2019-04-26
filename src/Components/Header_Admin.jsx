@@ -12,7 +12,7 @@ class Header extends Component{
 		<img className = "logo" src = {require('./GKK.png')}/>
 		  <ul className="navbar-nav  ml-auto">
 		    <li className="nav-item active">
-			    <NavLink to={ROUTES.REQUESTS} className="nav-link">Customer Requests</NavLink>
+			    <NavLink to={ROUTES.ADMIN_REQUESTS} className="nav-link">Customer Requests</NavLink>
 		    </li>
 		    <li className="nav-item">
 		      <NavLink to={ROUTES.LANDING} className="nav-link">Workers</NavLink>

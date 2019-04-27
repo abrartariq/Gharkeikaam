@@ -17,7 +17,7 @@ class App extends Component {
 			<div className="App">
 				<Header_afterSignIn/>
 					<div className="row">
-						<div className="col-12 col-md-8"><Homeimage/></div>
+						<div className="col-12 col-md-8"><Homeimage /></div>
 						<div className="col-6 col-md-4"><MyRequests/></div>
 					</div> 
 				<Footer/>

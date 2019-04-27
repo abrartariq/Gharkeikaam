@@ -195,7 +195,7 @@ if (worker!="")
     this.database.collection("CurrentRequests").doc(key).update({
       status:update,
       worker_id:worker,
-      payment:payments
+     
     })
     .then(() => {
       console.log("successfully Updated");

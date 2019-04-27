@@ -15,14 +15,10 @@ class Header extends Component{
 			    <NavLink to={ROUTES.LANDING} className="nav-link">Home</NavLink>
 		    </li>
 		    <li className="nav-item">
-		      <NavLink to={ROUTES.LANDING} className="nav-link">About Us</NavLink>
+		      <NavLink to={ROUTES.ABOUT} className="nav-link">About Us</NavLink>
 		    </li>
-		    <li className="nav-item">
-		      <NavLink to= {ROUTES.LANDING} className="nav-link">Our Services</NavLink>
-				</li>
-
 				<li className="nav-item">
-		      <NavLink to={ROUTES.LANDING} className="nav-link">Service Charges</NavLink>
+		      <NavLink to={ROUTES.SERVICECHARGES} className="nav-link">Service Charges</NavLink>
 		    </li>
 		    <li className="nav-item">
 		      <NavLink to ={ROUTES.CONTACT} className="nav-link">Contact Us</NavLink>

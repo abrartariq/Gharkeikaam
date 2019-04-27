@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './WorkersMain.css';
+import { withRouter } from 'react-router-dom';
+import * as ROUTES from '../constants/routes'
 
 
 const INITIAL_STATE = {
@@ -66,11 +68,11 @@ class WorkersMain extends Component {
   </table>
 </div>
 <br></br>
-<button type="submit" className="button_workers">Add Worker</button>
+<a href={ROUTES.ADDWORKER} className="button_workers">Add Worker</a>
 <br></br>
 </React.Fragment>
       );
     }
 }
  
-export default WorkersMain;
+export default withRouter(WorkersMain);

@@ -15,7 +15,7 @@ String.prototype.hashCode = function() {
           hash = hash * -1
       }
   }
-  return hash.toString();
+  return hash;
 };
 
 
@@ -67,7 +67,7 @@ class Firebase {
     console.log("HASHSASA",information.email.hashCode())
     this.database
       .collection("Customers")
-      .doc(information.email.hashCode())
+      .doc(information.email.hashCode().toString())
       .set({
         firstname: information.firstname,
         lastname: information.lastname,
@@ -137,6 +137,162 @@ getupdateadminpending=()=>{
  
 }
 
+getcustomerdetails=async(customerid)=>{
+
+  try{
+    console.log('12')
+    let customerdetails={}
+  
+    const doc= await this.database.collection("Customers").doc("2049493").get()
+    console.log('here')
+      const datas=doc.data()
+      customerdetails[doc.id]=[]
+      customerdetails[doc.id].push(doc.id)
+      customerdetails[doc.id].push(datas['firstname'])
+      customerdetails[doc.id].push(datas['lastname'])  
+      customerdetails[doc.id].push(datas['address']) 
+      customerdetails[doc.id].push(datas['phonenumber'])
+  
+    console.log(customerdetails)
+    console.log('done')
+    return customerdetails
+
+   
+  } 
+  catch(error){
+    console.log('error')
+  }
+}
+
+
+getworkdetails=async()=>{
+
+  try{
+    let workerdetails={}
+    const snapshot= await this.database.collection("Workers").get()
+    snapshot.docs.map((doc)=>{
+      const datas=doc.data()
+      workerdetails[doc.id]=[]
+      workerdetails[doc.id].push(doc.id)
+      workerdetails[doc.id].push(datas['firstname'])
+      workerdetails[doc.id].push(datas['lastname']) 
+       
+    })
+    console.log(workerdetails)
+    console.log('done')
+    return workerdetails
+  } 
+  catch(error){
+  
+  }
+
+
+}
+
+dosavepending = (key,worker,update,payments) => {
+if (worker!="")
+  {
+    this.database.collection("CurrentRequests").doc(key).update({
+      status:update,
+      worker_id:worker,
+      payment:payments
+    })
+    .then(() => {
+      console.log("successfully Updated");
+    })
+    .catch((error) =>{
+      console.log("Faield to update",error)
+    });
+  }else
+  {
+    this.database.collection("CurrentRequests").doc(key).update({
+      status:update,
+      payment:payments
+    })
+    .then(() => {
+      console.log("successfully Updated");
+    })
+    .catch((error) =>{
+      console.log("Faield to update",error)
+    });
+
+  }
+};
+
+getrequestdetails=async(thisid)=>{
+  console.log('here12')
+  try{
+    console.log('12')
+    let requestdetails={}
+    console.log('insiderequestdetails')
+    console.log(thisid)
+    const doc= await this.database.collection("CurrentRequests").doc(thisid).get()
+    console.log('here')
+      const datas=doc.data()
+      requestdetails[thisid]=[]
+      requestdetails[thisid].push(doc.id)
+      requestdetails[thisid].push(datas['service'])
+      requestdetails[thisid].push(datas['status'])  
+      requestdetails[thisid].push(datas['message']) 
+      requestdetails[thisid].push(datas['customer_id'])
+  
+    console.log(requestdetails)
+    console.log('done')
+    return requestdetails
+
+   
+  } 
+  catch(error){
+    console.log('error')
+  }
+
+}
+
+doSaveRequest = async(information) => {
+  console.log(information + "in db");
+  this.database
+    .collection("CurrentRequests")
+    .doc((new Date).getTime().toString())
+    .set({
+      message: information.message,
+      service: information.service,
+      email: information.email,
+      payment: information.payment,
+      rating: information.rating,
+      reviews: information.reviews,
+      customer_id: information.email.hashCode(),
+      status: information.status,
+      worker_id: information.worker_id,
+      worker_name: information.worker_name,
+      date: information.date,
+      time: information.time
+    })
+    .then(() => {
+      console.log("doSaveRequest","successfully addded data");
+    })
+    .catch(error => {
+      console.log("doSaveRequest","ERRR", error);
+    });
+}
+
+doDisplayRequest = async(email) =>{
+ 
+  var snapshot = await this.database.collection('CurrentRequests').where('customer_id', '==', email.hashCode()).get()
+  let req_list = []
+  snapshot.forEach(doc => {
+    let req_dict = {}
+    let mdata = doc.data()
+    req_dict["Service"] = mdata['service']
+    req_dict["Worker"] = mdata['worker_name']
+    req_dict["Status"] = mdata['status']
+    req_dict["Your Rating"] = mdata['rating']
+   
+    req_list.push(req_dict)
+  });
+
+  return req_list
+}
+  
 
 }
 

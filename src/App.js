@@ -16,6 +16,7 @@ import Edit_Worker from './pages/Edit_Worker';
 import Create_Request from './pages/Request';
 import About from './pages/About';
 import Confirm from './pages/Confirmation'
+import Price  from './pages/Price'
 
 import * as ROUTES from './constants/routes';
 import { Route, BrowserRouter, Switch} from 'react-router-dom';
@@ -45,6 +46,7 @@ class App extends Component {
 				    <Route path={ROUTES.CREATE_REQUEST} component={Create_Request} />
 						<Route path={ROUTES.ABOUT} component={About} />
 						<Route path={ROUTES.CONFIRMATION} component={Confirm} />
+						<Route path={ROUTES.SERVICECHARGES} component={Price} />
 
 				</Switch>
 

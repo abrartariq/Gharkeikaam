@@ -15,7 +15,7 @@ class Header extends Component{
 			    <NavLink to={ROUTES.ADMIN_REQUESTS} className="nav-link">Customer Requests</NavLink>
 		    </li>
 		    <li className="nav-item">
-		      <NavLink to={ROUTES.LANDING} className="nav-link">Workers</NavLink>
+		      <NavLink to={ROUTES.WORKERSMAIN} className="nav-link">Workers</NavLink>
 		    </li>
 		  </ul>
 		</nav>

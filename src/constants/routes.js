@@ -14,3 +14,4 @@ export const VIEWWORKER = '/viewworker';
 export const CREATE_REQUEST = '/create_request';
 export const ABOUT ='/about'
 export const CONFIRMATION ='/confirmation'
+export const SERVICECHARGES = "/prices";

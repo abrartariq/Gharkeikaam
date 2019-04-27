@@ -15,3 +15,9 @@ export const CREATE_REQUEST = '/create_request';
 export const ABOUT ='/about'
 export const CONFIRMATION ='/confirmation'
 export const SERVICECHARGES = "/prices";
+export const FEEDBACK = "/feedback";
+export const PROCESSING_REQUEST = "/processing-request";
+export const PROCESSING_REQUEST2 = "/processing-request2";
+
+
+

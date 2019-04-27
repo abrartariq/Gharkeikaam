@@ -18,6 +18,13 @@ import About from './pages/About';
 import Confirm from './pages/Confirmation'
 import Price  from './pages/Price'
 
+
+
+//abrar
+import Feedback from './pages/Feedback'
+import Processing_Request from './pages/Processing_Request'
+import Processing_Request2 from './pages/Processing_Request2'
+
 import * as ROUTES from './constants/routes';
 import { Route, BrowserRouter, Switch} from 'react-router-dom';
 import './App.css';
@@ -47,6 +54,9 @@ class App extends Component {
 						<Route path={ROUTES.ABOUT} component={About} />
 						<Route path={ROUTES.CONFIRMATION} component={Confirm} />
 						<Route path={ROUTES.SERVICECHARGES} component={Price} />
+						<Route path={ROUTES.FEEDBACK} component={Feedback} />
+						<Route path={ROUTES.PROCESSING_REQUEST} component={Processing_Request} />
+						<Route path={ROUTES.PROCESSING_REQUEST2} component={Processing_Request2} />
 
 				</Switch>
 

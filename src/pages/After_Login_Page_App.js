@@ -6,19 +6,26 @@ import { withRouter } from 'react-router-dom';
 import Homeimage from '../Components/home_images'
 import MyRequests from '../Components/MyRequests';
 import './Login_Page_App.css'
+import { FirebaseContext } from '../Components/Firebase'
+
 
 class App extends Component {
 	state = {}
 
-	// {console.log(this.props.location.state.detail)}
+
 	
-  render() {
+	render() {
 		return (
 			<div className="App">
-				<Header_afterSignIn/>
+			{console.log("afterlogin page",this.props.location.state.detail)}
+				<Header_afterSignIn email={this.props.location.state.detail}/>
 					<div className="row">
-						<div className="col-12 col-md-8"><Homeimage /></div>
-						<div className="col-6 col-md-4"><MyRequests/></div>
+						<div className="col-12 col-md-8"><Homeimage/></div>
+						<div className="col-6 col-md-4">
+							<FirebaseContext.Consumer>
+								{firebase => <MyRequests firebase={firebase} email={this.props.location.state.detail}/>}
+							</FirebaseContext.Consumer>
+						</div>
 					</div> 
 				<Footer/>
 			</div>

@@ -4,8 +4,9 @@
     margin-bottom: 20px;
 }
 
-.card{
+.card.bg-light.text-dark.x{
     height: 75%;
+    width: 80%;
     margin-top: 20%;
     margin-right:50px;
 }

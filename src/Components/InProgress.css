@@ -1,0 +1,29 @@
+.card.bg-light.text-dark.c{
+    width: 90%;
+    height: 90%;
+    margin-top: 10%;
+}
+
+.text-center.font-weight-bold.heading{
+    color: #242487;
+    margin-top: 5%;
+}
+.img-fluid.x{
+    height: 32%;
+    width: 20%;
+    margin-top: 4%;
+    margin-left: 3.5%;
+    margin-bottom: 3%;
+}
+
+.row.a{
+    margin-bottom: 0%;
+}
+
+.row.b{
+    margin-top: 0%;
+}
+
+.text-left.a{
+    margin-left: 1%;
+}

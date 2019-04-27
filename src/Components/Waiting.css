@@ -1,0 +1,16 @@
+.card.bg-light.text-dark.c{
+    width: 90%;
+    height: 90%;
+    margin-top: 10%;
+}
+
+.text-center.font-weight-bold{
+    color: #242487;
+}
+.img-fluid.z{
+    height: 25%;
+    width: 16%;
+    margin-top: 20%;
+    margin-left: 42%;
+    margin-bottom: 3%;
+}

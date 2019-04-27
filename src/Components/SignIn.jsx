@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SignIn.css";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 import { userInfo } from "os";
 import firebase from "firebase";
@@ -17,37 +17,42 @@ class SignIn extends Component {
 
   onSubmit = event => {
     const { email, password } = this.state;
-
-    this.props.firebase
-      .doSignInWithEmailAndPassword(email, password)
-      .then(() => {
-        var user = firebase.auth().currentUser;
-        console.log(user);
-        var emailVerified = user.emailVerified;
-        if (emailVerified == true) {
-          console.log("VERIFIED");
-
-        } else {
-          console.log("NOT VERIFIED");
-        }
-        
-        this.props.history.push({
-          pathname: ROUTES.WELCOME,
-          search: 'name=jhon&amp;age=24',
-          state: { detail: email }
-         });
-
-        console.log("Successfully log in");
-        this.setState({ ...INITIAL_STATE });
-      })
-      .catch(error => {
-        console.log("Error ");
-        console.log(error);
-        
-        this.setState({ error });
+    if (email == "admin123@gmail.com" && password == "123456") {
+      this.props.history.push({
+        pathname: ROUTES.ADMIN_REQUESTS,
       });
-    console.log("submitted" + this.state.email + " " + this.state.password);
-    event.preventDefault();
+
+    } else {
+      this.props.firebase
+        .doSignInWithEmailAndPassword(email, password)
+        .then(() => {
+          var user = firebase.auth().currentUser;
+          console.log(user);
+          var emailVerified = user.emailVerified;
+          if (emailVerified == true) {
+            console.log("VERIFIED");
+          } else {
+            console.log("NOT VERIFIED");
+          }
+
+          this.props.history.push({
+            pathname: ROUTES.WELCOME,
+            search: "name=jhon&amp;age=24",
+            state: { detail: email }
+          });
+
+          console.log("Successfully log in");
+          this.setState({ ...INITIAL_STATE });
+        })
+        .catch(error => {
+          console.log("Error ");
+          console.log(error);
+
+          this.setState({ error });
+        });
+      console.log("submitted" + this.state.email + " " + this.state.password);
+      event.preventDefault();
+    }
   };
 
   onChange = event => {
@@ -55,8 +60,6 @@ class SignIn extends Component {
   };
 
   render() {
-
-
     return (
       <div className="signup-form">
         <form role="form" onSubmit={this.onSubmit}>

@@ -4,7 +4,6 @@ import Header_Admin from '../Components/Header_Admin';
 import Footer from '../Components/Footer';
 import Request_Completed from '../Components/Request_Completed';
 import { FirebaseContext } from '../Components/Firebase'
-import { withRouter } from 'react-router-dom';
 
 
 
@@ -16,16 +15,14 @@ import { withRouter } from 'react-router-dom';
 
 
 
-class App extends Component {
+class Complete_Request_Admin extends Component {
  
-
-
   render() {
       console.log('here')
       console.log(this.props.location.state.details)
       let id=this.props.location.state.details
     return (
-      <div className="App">
+      <div className="Complete_Request_Admin">
         <Header_Admin />
         <FirebaseContext.Consumer>
             {firebase => <Request_Completed firebase={firebase} requestid={id} /> }
@@ -40,4 +37,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default Complete_Request_Admin;

@@ -56,11 +56,14 @@ class Request extends Component {
     } = this.state;
     const self = this;
     // console.log(this.)
-    this.props.firebase.doSaveRequest(this.state).then(function(){
+    let requestid=(new Date).getTime().toString()
+    this.props.firebase.doSaveRequest(this.state,requestid).then(function(){
       console.log(self.props.history)
+      console.log('request id', requestid)
+      
       self.props.history.push({
-        pathname: ROUTES.FEEDBACK,
-        state: { detail: email }
+        pathname: ROUTES.PROCESSING_REQUEST,
+        state: { detail: email, id:requestid }
       });
     });
   };

@@ -248,11 +248,12 @@ getrequestdetails=async(thisid)=>{
 
 }
 
-doSaveRequest = async(information) => {
+doSaveRequest = async(information,requestid) => {
+  
   console.log(information + "in db");
   this.database
     .collection("CurrentRequests")
-    .doc((new Date).getTime().toString())
+    .doc(requestid)
     .set({
       message: information.message,
       service: information.service,
@@ -269,6 +270,7 @@ doSaveRequest = async(information) => {
     })
     .then(() => {
       console.log("doSaveRequest","successfully addded data");
+      return requestid
     })
     .catch(error => {
       console.log("doSaveRequest","ERRR", error);
@@ -293,6 +295,30 @@ doDisplayRequest = async(email) =>{
   return req_list
 }
   
+getworkerdetailid=async(requestid)=>{
+  var snapshot = await this.database.collection('CurrentRequests').doc(requestid).get()
+  const datas=snapshot.data()
+  let workerid=datas['worker_id']
+  snapshot=await this.database.collection('Workers').doc(workerid).get()
+  const workerdata=snapshot.data()
+  return workerdata
+  
+
+}
+savefeedback=(requestid,updatemessage,updatereview)=>{
+  console.log('inside save feedback')
+  console.log(requestid)
+  console.log(updatemessage)
+  console.log(updatereview)
+  this.database.collection("CurrentRequests").doc(requestid).update({
+    rating:updatereview,
+    reviews:updatemessage
+  }).then(()=>{
+    console.log("successfully saved review and rating")
+  })
+
+}
+
 
 }
 

@@ -13,11 +13,17 @@ class Request_Page_App_Feedback extends Component {
 			<div className="Request_Page_App_Feedback">
 				<Header_afterSignIn/>
 					<div className="row">
-						<div class="col-12 col-md-8"><Feedback_Form/></div>
+					<div class="col-12 col-md-8">
+					<FirebaseContext.Consumer>
+							{firebase => <Feedback_Form firebase={firebase} email={this.props.location.state.detail} requestid={this.props.location.state.id}/>}
+						</FirebaseContext.Consumer>
+					</div>
+					<div class="col-12 col-md-4">
 						<FirebaseContext.Consumer>
 							{firebase => <Request firebase={firebase} email={this.props.location.state.detail}/>}
 						</FirebaseContext.Consumer>
 					</div> 
+					</div>
 				<Footer/>
 			</div>
     );

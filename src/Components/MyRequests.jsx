@@ -60,7 +60,7 @@ class MyRequests extends Component {
 						<ul className="list-group">
 							<li className="list-group-item text-left font-weight-bold">
 								Service: <div className= "list-inline-item font-weight-normal">{each['Service']} </div> <br/>
-								Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>
+								{/*Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>*/}
 								Status: <div className= "list-inline-item font-weight-normal">{each['Status']} </div> <br/>
 							</li>
 							<br/>
@@ -80,7 +80,7 @@ class MyRequests extends Component {
 						<ul className="list-group">
 							<li className="list-group-item text-left font-weight-bold">
 								Service: <div className= "list-inline-item font-weight-normal">{each['Service']} </div> <br/>
-								Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>
+								{/*Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>*/}
 								Status: <div className= "list-inline-item font-weight-normal">{each['Status']} </div> <br/>
 								Your Rating: <div className= "list-inline-item font-weight-normal">{each['Your Rating']} </div> <br/>
 							</li>

@@ -16,6 +16,8 @@ class Feedback_Form extends Component {
     console.log('Requestid is',this.props.requestid)
   }
   OnSubmit = event => {
+    event.preventDefault();
+
     const { rating, review } = this.state;
     console.log('insideonsubmit')
     this.props.firebase.savefeedback(this.props.requestid,this.state.review,this.state.rating)
@@ -25,7 +27,9 @@ class Feedback_Form extends Component {
   };
 
   changetohome=()=>{
-    this.props.history.push({
+    console.log('change')
+    let self =this
+    self.props.history.push({
       pathname: ROUTES.WELCOME,
       state: { detail: this.props.email }
     });

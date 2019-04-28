@@ -143,7 +143,7 @@ getcustomerdetails=async(customerid)=>{
     console.log('12')
     let customerdetails={}
   
-    const doc= await this.database.collection("Customers").doc("2049493").get()
+    const doc= await this.database.collection("Customers").doc(customerid.toString()).get()
     console.log('here')
       const datas=doc.data()
       customerdetails[doc.id]=[]

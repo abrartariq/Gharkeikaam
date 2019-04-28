@@ -144,19 +144,7 @@ class Signup extends Component {
               />
             </div>
           </div>
-          <div className="form-group">
-            <div className="indent_p"> Gender </div>
-            <div className="col">
-              <div className="row">
-
-                <div className="col-sm-3"> </div>
-                  <input type="radio" value="Male" name="gender" onChange={this.onChange}/> Male
-                <div className="col-sm-2"> </div>
-                  <input type="radio" value="Female" name="gender" onChange={this.onChange}/> Female
-                  
-              </div>
-            </div>
-          </div>
+         
 
 
           <button type="submit" className="button1">

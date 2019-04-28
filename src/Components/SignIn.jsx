@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
 import { userInfo } from "os";
 import firebase from "firebase";
+import { NavLink, Link } from 'react-router-dom';
 const INITIAL_STATE = {
   email: "",
   password: ""
@@ -93,10 +94,11 @@ class SignIn extends Component {
 
           <div className="text-center">
             {" "}
-            Forgot Password? <a href="#">Click Here</a>
+            
+            Forgot Password? <NavLink to ={ROUTES.FORGOT}>Click Here</NavLink>
           </div>
           <div className="text-center">
-            Don't have an account? <a href="#">Sign Up</a>
+            Don't have an account? <NavLink to ={ROUTES.SIGNUP}>Sign Up</NavLink>
           </div>
         </form>
       </div>

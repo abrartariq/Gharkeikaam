@@ -32,22 +32,28 @@ class SignIn extends Component {
           var emailVerified = user.emailVerified;
           if (emailVerified == true) {
             console.log("VERIFIED");
+            this.props.history.push({
+              pathname: ROUTES.WELCOME,
+              search: "name=jhon&amp;age=24",
+              state: { detail: email }
+            });
+
           } else {
             console.log("NOT VERIFIED");
+            alert('Your Email is not verified')
+            this.props.history.push({
+              pathname: ROUTES.LANDING,
+            });
           }
 
-          this.props.history.push({
-            pathname: ROUTES.WELCOME,
-            search: "name=jhon&amp;age=24",
-            state: { detail: email }
-          });
+         
 
           console.log("Successfully log in");
           this.setState({ ...INITIAL_STATE });
         })
         .catch(error => {
           console.log("Error ");
-          console.log(error);
+         alert('Wrong password')
 
           this.setState({ error });
         });

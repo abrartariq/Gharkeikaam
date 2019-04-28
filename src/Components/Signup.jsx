@@ -34,7 +34,13 @@ class Signup extends Component {
         this.props.firebase.doSendEmailVerification();
       })
       .then(() => {
+
+        this.props.history.push({
+          pathname: ROUTES.CONFIRMATION,
+        });
+
         this.setState({ ...INITIAL_STATE });
+
       })
       .catch(error => {
         console.log("Error in authentication");
@@ -156,4 +162,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

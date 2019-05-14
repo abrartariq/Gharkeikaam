@@ -64,7 +64,7 @@ class Approve_Request extends Component {
             <tr>
                  <td>{this.state.workers[key][0]}</td>
                  <td>{this.state.workers[key][1]} { this.state.workers[key][2] }</td>
-                <td><img src={require('./5-stars.png')} className="img-fluid a"></img></td>
+                {/* <td><img src={require('./5-stars.png')} className="img-fluid a"></img></td> */}
                 <td><input type="checkbox" onClick={()=>this.handlecheck(this.state.workers[key][0])} name="worker"></input></td>
              </tr>
             )
@@ -98,7 +98,6 @@ class Approve_Request extends Component {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Rating</th>
                                 <th></th>
                             </tr>
                         </thead>

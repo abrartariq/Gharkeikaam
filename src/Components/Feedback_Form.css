@@ -4,13 +4,21 @@
     margin-top: 10%;
 }
 
-.text-center.font-weight-bold.heading{
+.text-center.font-weight-bold.headingA{
     color: #242487;
     margin-top: 5%;
+    margin-bottom: 1%;
 }
 
-.text-center.font-weight-bold.heading2{
+.text-center.font-weight-bold.headingB{
     color: #242487;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+
+.myform{
+    margin-left: 1%;
+    width: 150%;
 }
 
 .text-left.y{
@@ -19,18 +27,20 @@
 }
 
 .form-group.rating{
-    width: 200%;
+    width: 50%;
     margin-top: 3%;
+    margin-left: 5%;
 }
 
 .form-control.response{
-    width: 70%;
-    margin-left: 6.5%;
+    width: 150%;
+    margin-left: 5%;
 }
 
 .btn.btn-primary.x{
     background-color: #242487;
-    width: 20%;
-    margin-left: 6.5%;
+    border: #242487;
+    width: 30%;
+    margin-left: 5%;
     margin-top: 3%;
 }

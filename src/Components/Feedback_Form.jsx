@@ -16,13 +16,14 @@ class Feedback_Form extends Component {
     console.log('Requestid is',this.props.requestid)
   }
   OnSubmit = event => {
-    event.preventDefault();
+    
 
     const { rating, review } = this.state;
     console.log('insideonsubmit')
     this.props.firebase.savefeedback(this.props.requestid,this.state.review,this.state.rating)
     
     this.changetohome()
+    
     
   };
 
@@ -41,16 +42,16 @@ class Feedback_Form extends Component {
   render() {
     return (
       <div className="card bg-light text-dark c">
-        <p className="text-center font-weight-bold heading">
-          Request Status: Completed
-        </p>
+        <div className="text-center font-weight-bold headingA">
+                  Request Status: Completed
+        </div>
 
-        <p className="text-center font-weight-bold heading2">
-          Thank You for using our service!
-        </p>
+        <div className="text-center font-weight-bold headingB">
+                  Thank You for using our service!
+        </div>
 
         <div className="text-left y">Please rate our service: </div>
-        <form onSubmit={this.OnSubmit} role="form">
+        <form onSubmit={this.OnSubmit} role="form"  className="myform bg-light">
           <div className="form-group rating">
             <select
               className="form-control rating"

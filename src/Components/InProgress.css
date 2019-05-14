@@ -7,13 +7,19 @@
 .text-center.font-weight-bold.heading{
     color: #242487;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
+
 .img-fluid.x{
     height: 32%;
     width: 20%;
     margin-top: 4%;
     margin-left: 3.5%;
     margin-bottom: 3%;
+}
+
+.text-left.font-weight-bold.h{
+    margin-left: 5%;
 }
 
 .row.a{

@@ -1,7 +1,8 @@
-.card{
-    margin-top: 2%;
-    margin-left: 7%;
+.card.bg-light.text-dark.a{
+    margin-top: 5%;
+    margin-left: 10%;
     margin-right: 7%;
+    width: 80%;
 }
 
 .row{
@@ -11,13 +12,21 @@
     margin-bottom: 5%;
 }
 
-.btn{
+.btn.btn-primary.s{
     background-color: #242487;
     border-color: #242487;
     text-decoration-color: white;
     font-size: 13px;
     margin-left: 29%;
     margin-top: 5%;
+}
+
+.list-group-item.text-left.font-weight-bold.xyz{
+    font-size: 90%;
+    margin-right:5%;
+    margin-left:5%;
+    border-radius: 0%;
+    margin-bottom: 2%;
 }
 
 .form-group.a{

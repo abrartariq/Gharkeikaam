@@ -57,16 +57,16 @@ getworkerdetails=(requestid)=>{
           Request Status: In Progress
         </p>
 
-        <div className="text-left font-weight-bold"> Worker details:</div>
+        <div className="text-left font-weight-bold h"> Worker details:</div>
         <img src={require("./Worker.jpeg")} className="img-fluid x" />
 
         <div class="row a">
-            <div class="text-left font-weight-bold">Name: </div>
+            <div class="text-left font-weight-bold h">Name: </div>
             <div class="text-left a">{this.state.worker['firstname']} {this.state.worker['lastname']} </div>
         </div>
 
         <div class="row b">
-            <div class="text-left font-weight-bold">Contact Number: </div>
+            <div class="text-left font-weight-bold h">Contact Number: </div>
             <div class="text-left a">{this.state.worker['contact']} </div>
         </div>
       </div>

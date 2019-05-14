@@ -101,11 +101,11 @@ markcompleted=(id)=>{
 render() { 
     const pending=Object.keys(this.state.adminrequestspending).map((key)=>{
         return (
-            <p className="list-group-item text-left font-weight-bold">
+            <p className="list-group-item text-left font-weight-bold xyz">
             Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][0]} </div> <br/>
             Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][1]} </div> <br/>
             Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestspending[key][2]}</div> <br/>
-        <button type="button" onClick={() => this.handlesort(this.state.adminrequestspending[key][0])} class="btn btn-primary">View Request</button>
+        <button type="button" onClick={() => this.handlesort(this.state.adminrequestspending[key][0])} class="btn btn-primary s">View Request</button>
         <br />
         </p>
         )
@@ -115,11 +115,11 @@ render() {
 
        const inprogress=Object.keys(this.state.adminrequestsinprogress).map((key)=>{
         return (
-            <p className="list-group-item text-left font-weight-bold">
+            <p className="list-group-item text-left font-weight-bold xyz">
             Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][0]} </div> <br/>
             Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][1]} </div> <br/>
             Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsinprogress[key][2]}</div> <br/>
-        <button type="button" onClick={() => this.markcompleted(this.state.adminrequestsinprogress[key][0])} class="btn btn-primary">View Request</button>
+        <button type="button" onClick={() => this.markcompleted(this.state.adminrequestsinprogress[key][0])} class="btn btn-primary s">View Request</button>
         <br />
         </p>
         )
@@ -128,11 +128,11 @@ render() {
 
        const completed=Object.keys(this.state.adminrequestsincompleted).map((key)=>{
         return (
-            <p className="list-group-item text-left font-weight-bold">
+            <p className="list-group-item text-left font-weight-bold xyz">
             Request ID: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][0]} </div> <br/>
             Service: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][1]} </div> <br/>
             Status: <div className= "list-inline-item font-weight-normal">{this.state.adminrequestsincompleted[key][2]}</div> <br/>
-        <button type="button" class="btn btn-primary">View Request</button>
+        <button type="button" class="btn btn-primary s">View Request</button>
         <br />
         </p>
         )
@@ -144,7 +144,7 @@ return (
     <div className="form-group a">
       
     </div>
-    <div className="card bg-light text-dark">
+    <div className="card bg-light text-dark a">
         <div className="row">
             <div className="col-sm-4">
                 <h6>Pending Requests</h6><br/>

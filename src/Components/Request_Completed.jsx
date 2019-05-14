@@ -63,7 +63,7 @@ class Request_Completed extends Component {
         const display=Object.keys(this.state.requests).map((key)=>{
             return (
 
-            <p className="text-left font-weight-bold">
+            <p className="text-left font-weight-bold xyz">
             Request ID: <div className= "list-inline-item font-weight-normal">{this.state.requests[key][0]}</div> <br/>
             Service: <div className= "list-inline-item font-weight-normal">{this.state.requests[key][1]}</div> <br/>
             Service Details: <div className= "list-inline-item font-weight-normal">{this.state.requests[key][3]}</div> <br/>
@@ -80,14 +80,15 @@ class Request_Completed extends Component {
         
 		return ( 
             
-			<div className="card bg-light text-dark">
+			<div className="card bg-light text-dark xyz">
               {display}
 
-                <button type="submit" onClick={() => this.completed()}  className="btn btn-primary c">Request Completed</button>
                 <div class="form-group payment">
                     <label for="usr">Add Payment</label>
                     <input type="text"  name="payment" onChange={this.onChange} class="form-control" id="usr"></input>
                 </div>
+                <button type="submit" onClick={() => this.completed()}  className="btn btn-primary c">Request Completed</button>
+
             </div>
 		);
 	}

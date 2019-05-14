@@ -7,6 +7,7 @@
 .card.bg-light.text-dark{
     width: 50%;
     margin-top: 5%;
+    margin-left:7%;
 }
 
 .btn.btn-primary.a{
@@ -14,6 +15,8 @@
     margin-bottom: 5%;
     margin-left: 0%;
     margin-top: -5%;
+    background-color: #242487;
+    border-color: #242487;
 }
 
 .btn.btn-primary.b{
@@ -21,6 +24,8 @@
     margin-bottom: 5%;
     margin-left: 3%;
     margin-top: -5%;
+    background-color: #242487;
+    border-color: #242487;
 }
 
 .container{

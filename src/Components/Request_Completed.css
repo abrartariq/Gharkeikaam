@@ -1,17 +1,20 @@
-.text-left{
-    font-size: 15px;
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-.card.bg-light.text-dark{
-    width: 50%;
+.text-left.font-weight-bold.xyz{
+    font-size: 100%;
+    margin-left: 5%;
     margin-top: 5%;
 }
 
+.card.bg-light.text-dark.xyz{
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 8%;
+}
+
 .btn.btn-primary.c{
+    background-color: #242487;
+    border-color: #242487;
     width: 30%;
     margin-bottom: 5%;
-    margin-left: 4%;
+    margin-left: 4.5%;
     margin-top: 0%;
 }

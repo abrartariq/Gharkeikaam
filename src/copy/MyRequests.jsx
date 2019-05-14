@@ -37,7 +37,7 @@ class MyRequests extends Component {
 						<div key={i}>
 	
 						<ul className="list-group">
-							<li className="list-group-item text-left font-weight-bold c">
+							<li className="list-group-item text-left font-weight-bold">
 								Service: <div className= "list-inline-item font-weight-normal">{each['Service']} </div> <br/>
 								{/*Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/> */}
 								Status: <div className= "list-inline-item font-weight-normal">{each['Status']} </div> <br/>
@@ -58,7 +58,7 @@ class MyRequests extends Component {
 						<div key={i}>
 	
 						<ul className="list-group">
-							<li className="list-group-item text-left font-weight-bold c">
+							<li className="list-group-item text-left font-weight-bold">
 								Service: <div className= "list-inline-item font-weight-normal">{each['Service']} </div> <br/>
 								{/*Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>*/}
 								Status: <div className= "list-inline-item font-weight-normal">{each['Status']} </div> <br/>
@@ -78,7 +78,7 @@ class MyRequests extends Component {
 						<div key={i}>
 
 						<ul className="list-group">
-							<li className="list-group-item text-left font-weight-bold c">
+							<li className="list-group-item text-left font-weight-bold">
 								Service: <div className= "list-inline-item font-weight-normal">{each['Service']} </div> <br/>
 								{/*Worker: <div className= "list-inline-item font-weight-normal">{each['Worker']} </div> <br/>*/}
 								Status: <div className= "list-inline-item font-weight-normal">{each['Status']} </div> <br/>
@@ -94,7 +94,7 @@ class MyRequests extends Component {
 		
 		return ( 
 			<div className="card bg-light text-dark x">
-			<h5 className="card-title xyz">Your Requests</h5>
+			<h5 className="card-title">Your Requests</h5>
 			{/* {console.log("==========",this.state.requests)} */}
 			{lists}
 			</div>

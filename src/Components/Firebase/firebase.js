@@ -86,7 +86,7 @@ class Firebase {
   };
   doDisplayWorker=async()=>{
     try{
-        const snapshot= await this.database.collection("Customers").get()  
+        const snapshot= await this.database.collection("Workers").get()  
         var names=[]   
         snapshot.docs.map((doc)=>{
           const datas=doc.data()

@@ -34,14 +34,12 @@ class Waiting extends Component {
 			self.changetoprocessing2()
 			console.log('here')
 		}
-})
-
-}
+})}
 
 
 	render() { 
 		return ( 
-			<div className="card bg-light text-dark c">
+			<div className="card bg-light text-dark abc">
                 <img src={require('./Spinner.gif')} className="img-fluid z"></img>
                 <p className="text-center font-weight-bold">
                 Request Status: Waiting for Approval

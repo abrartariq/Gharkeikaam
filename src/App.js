@@ -20,7 +20,6 @@ import Price  from './pages/Price'
 
 /*
 * ABrar Taruq
-*
 */
 
 //abrar

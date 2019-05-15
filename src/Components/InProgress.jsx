@@ -26,6 +26,16 @@ class InProgress extends Component {
   
 
 
+	changetorejected=()=>{
+		const self=this;
+		self.props.history.push({
+			pathname: ROUTES.REJECTION,
+			state: { detail: this.props.email}
+			
+		})
+  }
+  
+
 
   componentWillMount(){
     
@@ -37,9 +47,10 @@ class InProgress extends Component {
 		const datas=snapshot.data()
 		if (datas['status']=="completed"){
 			self.changetofeedback()
-			console.log('here')
+			console.log('From in Progress to feedback')
 		}
-})}
+
+  })}
 
 getworkerdetails=(requestid)=>{
   this.props.firebase.getworkerdetailid(requestid).then((workerdetails)=>{
@@ -60,14 +71,14 @@ getworkerdetails=(requestid)=>{
         <div className="text-left font-weight-bold h"> Worker details:</div>
         <img src={require("./Worker.jpeg")} className="img-fluid x" />
 
-        <div class="row a">
-            <div class="text-left font-weight-bold h">Name: </div>
-            <div class="text-left a">{this.state.worker['firstname']} {this.state.worker['lastname']} </div>
+        <div className="row a">
+            <div className="text-left font-weight-bold h">Name: </div>
+            <div className="text-left a">{this.state.worker['firstname']} {this.state.worker['lastname']} </div>
         </div>
 
-        <div class="row b">
-            <div class="text-left font-weight-bold h">Contact Number: </div>
-            <div class="text-left a">{this.state.worker['contact']} </div>
+        <div className="row b">
+            <div className="text-left font-weight-bold h">Contact Number: </div>
+            <div className="text-left a">{this.state.worker['contact']} </div>
         </div>
       </div>
     );

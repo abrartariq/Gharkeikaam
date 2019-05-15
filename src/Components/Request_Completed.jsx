@@ -78,6 +78,7 @@ class Request_Completed extends Component {
             )
         })
         
+        
 		return ( 
             
 			<div className="card bg-light text-dark xyz">
@@ -85,7 +86,7 @@ class Request_Completed extends Component {
 
                 <div class="form-group payment">
                     <label for="usr">Add Payment</label>
-                    <input type="text"  name="payment" onChange={this.onChange} class="form-control" id="usr"></input>
+                    <input type="text"  name="payment" onChange={this.onChange} className="form-control_N" id="usr"></input>
                 </div>
                 <button type="submit" onClick={() => this.completed()}  className="btn btn-primary c">Request Completed</button>
 

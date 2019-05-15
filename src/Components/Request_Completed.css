@@ -10,6 +10,11 @@
     margin-left: 8%;
 }
 
+.form-control_N{
+    width: 100%;
+
+}
+
 .btn.btn-primary.c{
     background-color: #242487;
     border-color: #242487;

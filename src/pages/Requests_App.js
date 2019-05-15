@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import Header_Admin from '../Components/Header_Admin';
-import Footer from '../Components/Footer';
+import Footer from '../Components/Footer_admin';
 import Request_list from '../Components/Request_list';
 import { FirebaseContext } from '../Components/Firebase'
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import Header_Admin from '../Components/Header_Admin';
-import Footer from '../Components/Footer';
+import Footer from '../Components/Footer_admin';
 import Approve_Request from '../Components/Approve_Request';
 import { FirebaseContext } from '../Components/Firebase'
 

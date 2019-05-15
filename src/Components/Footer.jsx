@@ -1,4 +1,5 @@
 import React from 'react';
+import * as ROUTES from '../constants/routes'
 import './Footer.css';
 
 function Footer(props) {
@@ -11,11 +12,10 @@ function Footer(props) {
 			<div className="row text-center text-xs-center text-sm-left text-md-left">
 				<div className="col-xs-12 col-sm-4 col-md-4">
 					<ul className="list-unstyled quick-links">
-						<li><a href="javascript:void();"> Home</a></li>
-						<li><a href="javascript:void();">About Us</a></li>
-						<li><a href="javascript:void();">Our Services</a></li>
-						<li><a href="javascript:void();">Service Charges</a></li>
-						<li><a href="javascript:void();">Contact Us</a></li>
+						<li><a href={ROUTES.LANDING}> Home</a></li>
+						<li><a href={ROUTES.ABOUT}>About Us</a></li>
+						<li><a href={ROUTES.SERVICECHARGES}>Service Charges</a></li>
+						<li><a href={ROUTES.CONTACT}>Contact Us</a></li>
 					</ul>
 				</div>
 			</div>

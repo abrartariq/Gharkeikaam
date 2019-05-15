@@ -17,6 +17,7 @@ class Feedback_Form extends Component {
   }
   OnSubmit = event => {
     
+    event.preventDefault()
 
     const { rating, review } = this.state;
     console.log('insideonsubmit')
@@ -29,10 +30,9 @@ class Feedback_Form extends Component {
 
   changetohome=()=>{
     console.log('change')
-    let self =this
-    self.props.history.push({
-      pathname: ROUTES.WELCOME,
-      state: { detail: this.props.email }
+    this.props.history.push({
+      pathname: ROUTES.ABOUT,
+      state: { detail: this.props.email, id:this.props.requestid }
     });
   }
   onChange = event => {
@@ -51,7 +51,7 @@ class Feedback_Form extends Component {
         </div>
 
         <div className="text-left y">Please rate our service: </div>
-        <form onSubmit={this.OnSubmit} role="form"  className="myform bg-light">
+        <form onSubmit={() => this.OnSubmit()} role="form"  className="myform bg-light">
           <div className="form-group rating">
             <select
               className="form-control rating"

@@ -1,10 +1,13 @@
 .navbar-nav {
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
 
-.navbar-nav>li{
-padding-left:30px;
- padding-right:30px;
+.navbar-navlink{
+    padding-left:30px;
+    padding-right:30px;
 
 
 } 

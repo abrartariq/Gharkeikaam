@@ -33,10 +33,10 @@ class Header extends Component {
     // console.log("INREQUESTSERVICE",this.props.history.location.state.detail)
     let email = this.props.history.location.state.detail
     // console.log("GOT U",email)
-    // this.props.history.push({
-    //   pathname: ROUTES.SERVICECHARGES,
-    //   state: { detail: email }
-    // });
+    this.props.history.push({
+      pathname: ROUTES.SERVICECHARGES,
+      state: { detail: email }
+    });
   }
   aboutus = event => {
     // console.log("INREQUESTSERVICE",this.props.history.location.state.detail)
@@ -78,30 +78,36 @@ class Header extends Component {
         <img className="logo" src={require("./GKK.png")} />
         <ul className="navbar-nav  ml-auto">
           <li className="nav-item active">
-            <a className="nav-link"  onClick = {this.home}>
+            <a className="cursor-pointer"  onClick = {this.home}>
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link"  onClick = {this.aboutus}>
+            <a className="cursor-pointer"  onClick = {this.aboutus}>
               About Us
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link"  onClick = {this.servicecharges}>
+            <a className="cursor-pointer"  onClick = {this.servicecharges}>
               Service Charges
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link"  onClick = {this.requestservice}>
+            <a className="cursor-pointer"  onClick = {this.requestservice}>
               Request Service
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" onClick = {this.contactus}>
+            <a className="cursor-pointer" onClick = {this.contactus}>
               Contact Us
             </a>
           </li>
+          <li className="nav-item">
+            <a className="cursor-pointer" href={ROUTES.LANDING}>
+              Logout
+            </a>
+          </li>
+
         </ul>
       </nav>
     );

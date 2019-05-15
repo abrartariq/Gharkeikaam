@@ -18,11 +18,6 @@ import About from './pages/About';
 import Confirm from './pages/Confirmation'
 import Price  from './pages/Price'
 
-/*
-* ABrar Taruq
-*/
-
-//abrar
 import Feedback from './pages/Feedback'
 import Processing_Request from './pages/Processing_Request'
 import Processing_Request2 from './pages/Processing_Request2'
@@ -53,12 +48,12 @@ class App extends Component {
 				    <Route path={ROUTES.ADDWORKER} component={Add_Worker} />
 				    <Route path={ROUTES.EDITWORKER} component={Edit_Worker} />
 				    <Route path={ROUTES.CREATE_REQUEST} component={Create_Request} />
-						<Route path={ROUTES.ABOUT} component={About} />
-						<Route path={ROUTES.CONFIRMATION} component={Confirm} />
-						<Route path={ROUTES.SERVICECHARGES} component={Price} />
-						<Route path={ROUTES.FEEDBACK} component={Feedback} />
-						<Route path={ROUTES.PROCESSING_REQUEST} component={Processing_Request} />
-						<Route path={ROUTES.PROCESSING_REQUEST2} component={Processing_Request2} />
+					<Route path={ROUTES.ABOUT} component={About} />
+					<Route path={ROUTES.CONFIRMATION} component={Confirm} />
+					<Route path={ROUTES.SERVICECHARGES} component={Price} />
+					<Route path={ROUTES.FEEDBACK} component={Feedback} />
+					<Route path={ROUTES.PROCESSING_REQUEST} component={Processing_Request} />
+					<Route path={ROUTES.PROCESSING_REQUEST2} component={Processing_Request2} />
 
 				</Switch>
 

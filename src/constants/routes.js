@@ -18,6 +18,7 @@ export const SERVICECHARGES = "/prices";
 export const FEEDBACK = "/feedback";
 export const PROCESSING_REQUEST = "/processing-request";
 export const PROCESSING_REQUEST2 = "/processing-request2";
+export const REJECTION = "/rejection";
 
 
 

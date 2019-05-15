@@ -22,7 +22,7 @@ class About extends Component {
              request the required service and let GharKeKaam take care of the rest.</p>
              </div>
              <div class="col-6 col-md-4">
-             <img src={require('./about.jpg')} className = "img-fluid-small"></img>
+             <img src={require('./about.jpg')} className = "img-fluid"></img>
              </div> </div></div>
             </React.Fragment>
         );

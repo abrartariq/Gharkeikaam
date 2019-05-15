@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import Header_Admin from '../Components/Header_Admin';
-import Footer from '../Components/Footer';
+import Footer from '../Components/Footer_admin';
 import Request_Completed from '../Components/Request_Completed';
 import { FirebaseContext } from '../Components/Firebase'
 
@@ -27,7 +27,6 @@ class Complete_Request_Admin extends Component {
         <FirebaseContext.Consumer>
             {firebase => <Request_Completed firebase={firebase} requestid={id} /> }
             </FirebaseContext.Consumer>  
-        <Footer />
       
      
         <Footer />

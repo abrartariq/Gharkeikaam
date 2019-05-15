@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import Header_afterSignIn from '../Components/Header_afterSignIn'
 import Footer from '../Components/Footer'
 import { withRouter } from 'react-router-dom';

@@ -12,10 +12,10 @@ function Footer(props) {
 			<div className="row text-center text-xs-center text-sm-left text-md-left">
 				<div className="col-xs-12 col-sm-4 col-md-4">
 					<ul className="list-unstyled quick-links">
-						<li><a href={ROUTES.LANDING}> Home</a></li>
-						<li><a href={ROUTES.ABOUT}>About Us</a></li>
-						<li><a href={ROUTES.SERVICECHARGES}>Service Charges</a></li>
-						<li><a href={ROUTES.CONTACT}>Contact Us</a></li>
+						<li><a> Home</a></li>
+						<li><a>About Us</a></li>
+						<li><a>Service Charges</a></li>
+						<li><a>Contact Us</a></li>
 					</ul>
 				</div>
 			</div>

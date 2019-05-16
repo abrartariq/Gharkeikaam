@@ -87,9 +87,9 @@ class WorkersMain extends Component {
           </table>
         </div>
         <br />
-        <a onClick={this.onAdd}>
-          <p className="button_workers">Add Worker</p>
-        </a>
+        <div >
+          <b className="button_workers" onClick={this.onAdd}>Add Worker</b>
+        </div>
         <br />
       </React.Fragment>
     );

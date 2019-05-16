@@ -108,23 +108,17 @@ class AddWorker extends Component {
       address == ""
     ) {
       window.alert("All Fields Are Mandadory, Please Fill All Fields");
-      // event.preventDefault()
     } else if (!isAlpha(firstname) || !isAlpha(lastname)) {
       console.log("NOT ALPH");
       window.alert("Name can only contain Letters. Please Try Again");
-      // event.preventDefault();
-    } else if (!isNumeric(cnic)) {
-      window.alert("CNIC can only contain Numbers. Please Try Again");
-      // event.preventDefault();
+    } else if (!isNumeric(cnic) && cnic.length == 13) {
+      window.alert("CNIC can only contain 13 Numbers. Please Try Again");
     } else if (!isNumeric(phonenumber)) {
       window.alert("PhoneNumber can only contain Number. Please Try Again");
-      // event.preventDefault();
     } else if (service == "Select Service...") {
       window.alert("Please Choose A Service");
-      // event.preventDefault();
     } else if (gender == "Select Gender...") {
       window.alert("Please Choose A Gender");
-      // event.preventDefault();
     } else {
       console.log("About to submit");
       this.props.firebase.doSaveNewWorker(this.state).then(() => {
@@ -132,7 +126,7 @@ class AddWorker extends Component {
       });
 
       this.props.history.push({
-        pathname: ROUTES.ADMIN_REQUESTS
+        pathname: ROUTES.WORKERSMAIN
       });
 
       this.setState({ ...INITIAL_STATE });
@@ -156,11 +150,11 @@ class AddWorker extends Component {
                 />
                 <br />
               </div>
-              <div className="d-flex justify-content-center">
+              {/* <div className="d-flex justify-content-center">
                 <div className="btn btn-mdb-color btn-rounded float-left">
                   <input type="file" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="form-group">

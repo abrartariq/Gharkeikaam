@@ -90,6 +90,7 @@ class Signup extends Component {
   }
 
   onSubmit = event => {
+    event.preventDefault();
     const {
       firstname,
       lastname,
@@ -103,30 +104,21 @@ class Signup extends Component {
     if (!isAlpha(firstname) || !isAlpha(lastname)) {
       console.log("NOT ALPH");
       window.alert("Name can only contain Letters. Please Try Again");
-      event.preventDefault();
     } else if (!isemail(email)) {
       window.alert("Please Follow Standard Email Syntax. example@xyz.com");
-      event.preventDefault();
-    } else if (!isNumeric(phonenumber)) {
-      window.alert(
-        "Your PhoneNumber can only contain Number. Please Try Again"
-      );
-      event.preventDefault();
+    }else if(password.length < 6){
+      window.alert("Password must be greater than 6 characters. Please Try Again");
+    }else if (!isNumeric(phonenumber)) {
+      window.alert("Your PhoneNumber can only contain Number. Please Try Again");
     } else if (!validDOB(dateofbirth)) {
-      window.alert(
-        "Your age must be atleast 16 years old to request our services. Please Try Again Later"
-      );
-
-      event.preventDefault();
+      window.alert("Your age must be atleast 16 years old to request our services. Please Try Again Later");
     } else {
-      // const { email, password } = this.state;
 
       this.props.firebase
         .doCreateUserWithEmailAndPassword(email, password)
         .then(authUser => {
           //function gets called to authenticate new user
           console.log("Authenticated_User");
-
           this.props.firebase.doSaveNewUser(this.state);
         })
         .then(() => {
@@ -136,7 +128,6 @@ class Signup extends Component {
           this.props.history.push({
             pathname: ROUTES.CONFIRMATION
           });
-
           this.setState({ ...INITIAL_STATE });
         })
         .catch(error => {

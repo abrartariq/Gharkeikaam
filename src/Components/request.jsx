@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import * as ROUTES from "../constants/routes";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import "./request.css";
-
-
 
 const INITIAL_STATE = {
   service: "",
@@ -36,7 +34,6 @@ class Request extends Component {
     // console.log("IN CREATE REQUEST history =>",this.props.email);
     this.state = { ...INITIAL_STATE };
     this.state.email = this.props.email;
-    
   }
   OnSubmit = event => {
     event.preventDefault();
@@ -54,28 +51,33 @@ class Request extends Component {
       date,
       time
     } = this.state;
-    const self = this;
-    // console.log(this.)
-    let requestid=(new Date).getTime().toString()
-    this.props.firebase.doSaveRequest(this.state,requestid).then(function(){
-      console.log(self.props.history)
-      console.log('request id', requestid)
-      
-      self.props.history.push({
-        pathname: ROUTES.PROCESSING_REQUEST,
-        state: { detail: email, id:requestid }
+
+    if (service == "Select Service..." || service == "") {
+      window.alert("Please Choose A Service");
+    } else {
+      const self = this;
+      // console.log(this.)
+      let requestid = new Date().getTime().toString();
+      this.props.firebase.doSaveRequest(this.state, requestid).then(function() {
+        console.log(self.props.history);
+        console.log("request id", requestid);
+
+        self.props.history.push({
+          pathname: ROUTES.PROCESSING_REQUEST,
+          state: { detail: email, id: requestid }
+        });
       });
-    });
+    }
   };
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.name)
+    console.log(event.target.name);
   };
 
   render() {
     return (
       <div className="request-form">
-      {/* {console.log("IN CREATE REQUEST",this.props.location)} */}
+        {/* {console.log("IN CREATE REQUEST",this.props.location)} */}
         {/* <form action="" method="post"> */}
         <form role="form" onSubmit={this.OnSubmit}>
           <h2 color="#242487">Request Service</h2>

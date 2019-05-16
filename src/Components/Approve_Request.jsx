@@ -52,16 +52,20 @@ class Approve_Request extends Component {
 
   approved = () => {
     console.log("Approved here");
-    console.log(this.state.workersassigned);
-    let status = "inprogress";
-    this.props.firebase.dosavepending(
-      this.props.requestid,
-      this.state.workersassigned,
-      status
-    );
-    this.props.history.push({
-      pathname: ROUTES.ADMIN_REQUESTS
-    });
+    if (this.state.workersassigned != "") {
+      console.log(this.state.workersassigned);
+      let status = "inprogress";
+      this.props.firebase.dosavepending(
+        this.props.requestid,
+        this.state.workersassigned,
+        status
+      );
+      this.props.history.push({
+        pathname: ROUTES.ADMIN_REQUESTS
+      });
+    }else{
+      window.alert("To Approve The Request A Worker Must Be Choosed. Please Try Again");
+    }
   };
   reject = () => {
     console.log("Reject here");

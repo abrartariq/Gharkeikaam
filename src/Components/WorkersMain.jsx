@@ -42,7 +42,6 @@ class WorkersMain extends Component {
 
     console.log(neworkers);
     this.setState({ workers: neworkers });
-    this.forceUpdate();
   };
 
   render() {
@@ -52,7 +51,7 @@ class WorkersMain extends Component {
           <td>{each[0]}</td>
           <td>{each[1]}</td>
           <td>
-            <a href="#">View Details</a>
+            <b> {each[2]} </b>
           </td>
           <td>
             {" "}

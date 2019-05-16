@@ -117,7 +117,7 @@ class Firebase {
       var details = [];
       snapshot.docs.map(doc => {
         const datas = doc.data();
-        details.push([doc.id, datas["firstname"]]);
+        details.push([doc.id, datas["firstname"],datas["service"]]);
       });
       return details;
     } catch (error) {

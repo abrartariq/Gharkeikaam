@@ -8,74 +8,70 @@ function isAlpha(str) {
 
   for (i = 0, len = str.length; i < len; i++) {
     code = str.charCodeAt(i);
-    if (//!(code > 47 && code < 58) && //  (0-9)
-        !(code > 64 && code < 91) && // upper alpha (A-Z)
-        !(code > 96 && code < 123) && // lower alpha (a-z)
-        !(code == 32)       // Space 
+    if (
+      //!(code > 47 && code < 58) && //  (0-9)
+      !(code > 64 && code < 91) && // upper alpha (A-Z)
+      !(code > 96 && code < 123) && // lower alpha (a-z)
+      !(code == 32) // Space
     ) {
-
       return false;
     }
   }
   return true;
-};
+}
 
 function isAlphaNumeric(str) {
   var code, i, len;
 
   for (i = 0, len = str.length; i < len; i++) {
     code = str.charCodeAt(i);
-    if (!(code > 47 && code < 58) && //  (0-9)
-        !(code > 64 && code < 91) && // upper alpha (A-Z)
-        !(code > 96 && code < 123)  // lower alpha (a-z)
-                 // Space 
+    if (
+      !(code > 47 && code < 58) && //  (0-9)
+      !(code > 64 && code < 91) && // upper alpha (A-Z)
+      !(code > 96 && code < 123) // lower alpha (a-z)
+      // Space
     ) {
-
       return false;
     }
   }
   return true;
-};
+}
 
 function isNumeric(str) {
   var code, i, len;
 
   for (i = 0, len = str.length; i < len; i++) {
     code = str.charCodeAt(i);
-    if (!(code > 47 && code < 58))  //  (0-9)
-    {
+    if (!(code > 47 && code < 58)) {
+      //  (0-9)
       return false;
     }
   }
   return true;
-};
+}
 
 function isemail(str) {
   var code, i, len;
 
   for (i = 0, len = str.length; i < len; i++) {
     code = str.charCodeAt(i);
-    if (!(code == 64) &&  // "@"
-        !(code == 95) &&  // "_"
-        !(isAlphaNumeric(code))
-      ) {
-        return false;
-      }
+    if (
+      !(code == 64) && // "@"
+      !(code == 95) && // "_"
+      !isAlphaNumeric(code)
+    ) {
+      return false;
+    }
   }
   return true;
-};
+}
 
 function validDOB(str) {
-  if ((new Date().getFullYear() - parseInt(str.split("-")[0])) < 16){
+  if (new Date().getFullYear() - parseInt(str.split("-")[0]) < 16) {
     return false;
   }
   return true;
-};
-
-
-
-
-
+}
 
 const INITIAL_STATE = {
   firstname: "",
@@ -93,61 +89,63 @@ class Signup extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-
-
-
   onSubmit = event => {
-    const {firstname,lastname,email,password,dateofbirth,phonenumber,address} = this.state
+    const {
+      firstname,
+      lastname,
+      email,
+      password,
+      dateofbirth,
+      phonenumber,
+      address
+    } = this.state;
 
-    if (!isAlpha(firstname) || !isAlpha(lastname)){
-      console.log("NOT ALPH")
-      window.alert("Name can only contain Letters. Please Try Again")
+    if (!isAlpha(firstname) || !isAlpha(lastname)) {
+      console.log("NOT ALPH");
+      window.alert("Name can only contain Letters. Please Try Again");
       event.preventDefault();
-    }else if(!isemail(email)){
-      window.alert("Please Follow Standard Email Syntax. example@xyz.com")
+    } else if (!isemail(email)) {
+      window.alert("Please Follow Standard Email Syntax. example@xyz.com");
       event.preventDefault();
-    }else if(!isNumeric(phonenumber)){
-      window.alert("Your PhoneNumber can only contain Number. Please Try Again")
+    } else if (!isNumeric(phonenumber)) {
+      window.alert(
+        "Your PhoneNumber can only contain Number. Please Try Again"
+      );
       event.preventDefault();
-    }else if(!validDOB(dateofbirth)){
-      window.alert("Your age must be atleast 16 years old to request our services. Please Try Again Later")
+    } else if (!validDOB(dateofbirth)) {
+      window.alert(
+        "Your age must be atleast 16 years old to request our services. Please Try Again Later"
+      );
 
       event.preventDefault();
-    }
-    
-    else{
+    } else {
+      // const { email, password } = this.state;
 
+      this.props.firebase
+        .doCreateUserWithEmailAndPassword(email, password)
+        .then(authUser => {
+          //function gets called to authenticate new user
+          console.log("Authenticated_User");
 
-    // const { email, password } = this.state;
+          this.props.firebase.doSaveNewUser(this.state);
+        })
+        .then(() => {
+          this.props.firebase.doSendEmailVerification();
+        })
+        .then(() => {
+          this.props.history.push({
+            pathname: ROUTES.CONFIRMATION
+          });
 
-    this.props.firebase
-      .doCreateUserWithEmailAndPassword(email, password)
-      .then(authUser => {
-        //function gets called to authenticate new user
-        console.log("Authenticated_User");
-
-        this.props.firebase.doSaveNewUser(this.state);
-      })
-      .then(() => {
-        this.props.firebase.doSendEmailVerification();
-      })
-      .then(() => {
-
-        this.props.history.push({
-          pathname: ROUTES.CONFIRMATION,
+          this.setState({ ...INITIAL_STATE });
+        })
+        .catch(error => {
+          console.log("Error in__ authentication");
+          this.setState({ error });
         });
-
-        this.setState({ ...INITIAL_STATE });
-
-      })
-      .catch(error => {
-        console.log("Error in__ authentication");
-        this.setState({ error });
-      });
-
-    };
+    }
     event.preventDefault();
-  }
+  };
 
   onChange = event => {
     console.log(event.target.name);
@@ -249,8 +247,6 @@ class Signup extends Component {
               />
             </div>
           </div>
-         
-
 
           <button type="submit" className="button1">
             Register

@@ -1,104 +1,104 @@
-.form-control{
-    box-shadow: none;
-    color: #969fa4;
+.form-control {
+  box-shadow: none;
+  color: #969fa4;
 }
-.form-control:focus{
-    border-color: #242487;
+.form-control:focus {
+  border-color: #242487;
 }
-.form-control{        
-    border-radius: 3px;
+.form-control {
+  border-radius: 3px;
 }
 
 .button-worker {
-    background-color: #242487;
-    border-radius: 3px;
-    width: 100%;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    font: Segoe ui;
-  }
-.addworker-form{
-    width: 40%;
-    height: auto;
-    margin-left: 30%;
-    padding: 30px 0;
+  background-color: #242487;
+  border-radius: 3px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font: Segoe ui;
 }
-.addworker-form h2{
-    color: #242487;
-    margin: 0 0 15px;
-    position: relative;
-    text-align: center;
+.addworker-form {
+  width: 40%;
+  height: auto;
+  margin-left: 30%;
+  padding: 30px 0;
 }
-.addworker-form h2:before, .addworker-form h2:after{
-    content: "";
-    height: 2px;
-    width: 30%;
-    background: #d4d4d4;
-    position: relative;
-    top: 20%;
-    z-index: 2;
-}	
-.addworker-form h2:before{
-    left: 0;
+.addworker-form h2 {
+  color: #242487;
+  margin: 0 0 15px;
+  position: relative;
+  text-align: center;
 }
-.addworker-form h2:after{
-    right: 0;
+.addworker-form h2:before,
+.addworker-form h2:after {
+  content: "";
+  height: 2px;
+  width: 30%;
+  background: #d4d4d4;
+  position: relative;
+  top: 20%;
+  z-index: 2;
 }
-.addworker-form .hint-text{
-    color: #999;
-    margin-bottom: 90px;
-    text-align: center;
+.addworker-form h2:before {
+  left: 0;
 }
-.addworker-form form{
-    color: #999;
-    border-radius: 3px;
-    margin-top: 5px;
-    background: #f2f3f7;
-    height: 740px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    padding: 30px;
+.addworker-form h2:after {
+  right: 0;
 }
-.addworker-form .form-group{
-    margin-bottom: 20%;
+.addworker-form .hint-text {
+  color: #999;
+  margin-bottom: 90px;
+  text-align: center;
 }
-.addworker-form input[type="checkbox"]{
-    margin-top: 3px;
+.addworker-form form {
+  color: #999;
+  border-radius: 3px;
+  margin-top: 5px;
+  background: #f2f3f7;
+  height: 740px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }
-.addworker-form .btn{        
-    font-size: 16px;
-    font-weight: bold;		
-    min-width: 140px;
-    outline: none !important;
+.addworker-form .form-group {
+  margin-bottom: 20%;
 }
-.addworker-form .row div:first-child{
-    padding-right: 10px;
+.addworker-form input[type="checkbox"] {
+  margin-top: 3px;
 }
-.addworker-form .row div:last-child{
-    padding-left: 10px;
-}    	
-.addworker-form a{
-    color: #fff;
-    text-decoration: underline;
+.addworker-form .btn {
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 140px;
+  outline: none !important;
 }
-.addworker-form a:hover{
-    text-decoration: none;
+.addworker-form .row div:first-child {
+  padding-right: 10px;
 }
-.addworker-form form a{
-    color: #242487;
-    text-decoration: none;
-}	
-.addworker-form form a:hover{
-    text-decoration: underline;
-}  
+.addworker-form .row div:last-child {
+  padding-left: 10px;
+}
+.addworker-form a {
+  color: #fff;
+  text-decoration: underline;
+}
+.addworker-form a:hover {
+  text-decoration: none;
+}
+.addworker-form form a {
+  color: #242487;
+  text-decoration: none;
+}
+.addworker-form form a:hover {
+  text-decoration: underline;
+}
 .img-fluid-worker {
-    width: 30%;
-    float: left;
-    align-self: left;
-    /* margin-bottom: 90px; */
-  }
- 
+  width: 30%;
+  float: left;
+  align-self: left;
+  /* margin-bottom: 90px; */
+}

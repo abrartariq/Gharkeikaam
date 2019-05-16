@@ -132,13 +132,12 @@ class AddWorker extends Component {
       });
 
       this.props.history.push({
-        pathname: ROUTES.ADMIN_REQUESTS,
+        pathname: ROUTES.ADMIN_REQUESTS
       });
 
       this.setState({ ...INITIAL_STATE });
       // event.preventDefault();
     }
-
   };
 
   render() {

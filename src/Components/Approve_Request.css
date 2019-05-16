@@ -1,40 +1,40 @@
-.text-left{
-    font-size: 15px;
-    margin-left: 30px;
-    margin-top: 10px;
+.text-left {
+  font-size: 15px;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
-.card.bg-light.text-dark{
-    width: 50%;
-    margin-top: 5%;
-    margin-left:7%;
+.card.bg-light.text-dark {
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 7%;
 }
 
-.btn.btn-primary.a{
-    width: 20%;
-    margin-bottom: 5%;
-    margin-left: 0%;
-    margin-top: 0%;
-    background-color: #242487;
-    border-color: #242487;
+.btn.btn-primary.a {
+  width: 20%;
+  margin-bottom: 5%;
+  margin-left: 0%;
+  margin-top: 0%;
+  background-color: #242487;
+  border-color: #242487;
 }
 
-.btn.btn-primary.b{
-    width: 20%;
-    margin-bottom: 5%;
-    margin-left: 3%;
-    margin-top: 0%;
-    background-color: #242487;
-    border-color: #242487;
+.btn.btn-primary.b {
+  width: 20%;
+  margin-bottom: 5%;
+  margin-left: 3%;
+  margin-top: 0%;
+  background-color: #242487;
+  border-color: #242487;
 }
 
-.container{
-    padding-left: 0%;
+.container {
+  padding-left: 0%;
 }
 
-.table2{
-    background-color: white;
-    width: 85%;
-    margin-left: 5%;
-    margin-bottom: 0%;
+.table2 {
+  background-color: white;
+  width: 85%;
+  margin-left: 5%;
+  margin-bottom: 0%;
 }

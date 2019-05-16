@@ -1,19 +1,16 @@
-.card.bg-light.text-dark.abc{
+.card.bg-light.text-dark.c{
     width: 90%;
     height: 90%;
-
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .text-center.font-weight-bold{
     color: #242487;
-    margin-bottom: 15%;
 }
 .img-fluid.z{
-    height: 28%;
+    height: 25%;
     width: 16%;
-    margin-top: 15%;
+    margin-top: 20%;
     margin-left: 42%;
     margin-bottom: 3%;
 }

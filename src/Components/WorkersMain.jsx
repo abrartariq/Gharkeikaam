@@ -44,6 +44,12 @@ class WorkersMain extends Component {
     this.setState({ workers: neworkers });
   };
 
+  onAdd = () => {
+    this.props.history.push({
+      pathname: ROUTES.ADDWORKER
+    });
+  }
+
   render() {
     const lists = this.state.workers.map((each, i) => {
       return (
@@ -81,8 +87,8 @@ class WorkersMain extends Component {
           </table>
         </div>
         <br />
-        <a href={ROUTES.ADDWORKER} className="button_workers">
-          Add Worker
+        <a onClick={this.onAdd}>
+          <p className="button_workers">Add Worker</p>
         </a>
         <br />
       </React.Fragment>

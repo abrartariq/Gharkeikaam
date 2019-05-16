@@ -3,6 +3,80 @@ import { Link, withRouter } from "react-router-dom";
 import "./Signup.css";
 import * as ROUTES from "../constants/routes";
 
+function isAlpha(str) {
+  var code, i, len;
+
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (//!(code > 47 && code < 58) && //  (0-9)
+        !(code > 64 && code < 91) && // upper alpha (A-Z)
+        !(code > 96 && code < 123)  // lower alpha (a-z)
+                 // Space 
+    ) {
+
+      return false;
+    }
+  }
+  return true;
+};
+
+function isAlphaNumeric(str) {
+  var code, i, len;
+
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (!(code > 47 && code < 58) && //  (0-9)
+        !(code > 64 && code < 91) && // upper alpha (A-Z)
+        !(code > 96 && code < 123)  // lower alpha (a-z)
+                 // Space 
+    ) {
+
+      return false;
+    }
+  }
+  return true;
+};
+
+function isNumeric(str) {
+  var code, i, len;
+
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (!(code > 47 && code < 58))  //  (0-9)
+    {
+      return false;
+    }
+  }
+  return true;
+};
+
+function isemail(str) {
+  var code, i, len;
+
+  for (i = 0, len = str.length; i < len; i++) {
+    code = str.charCodeAt(i);
+    if (!(code == 64) &&  // "@"
+        !(code == 95) &&  // "_"
+        !(isAlphaNumeric(code))
+      ) {
+        return false;
+      }
+  }
+  return true;
+};
+
+function validDOB(str) {
+  if ((new Date().getFullYear() - parseInt(str.split("-")[0])) < 16){
+    return false;
+  }
+  return true;
+};
+
+
+
+
+
+
 const INITIAL_STATE = {
   firstname: "",
   lastname: "",
@@ -19,8 +93,32 @@ class Signup extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
+
+
+
   onSubmit = event => {
-    const { email, password } = this.state;
+    const {firstname,lastname,email,password,dateofbirth,phonenumber,address} = this.state
+
+    if (!isAlpha(firstname) || !isAlpha(lastname)){
+      console.log("NOT ALPH")
+      window.alert("Name can only contain Letters. Please Try Again")
+      event.preventDefault();
+    }else if(!isemail(email)){
+      window.alert("Please Follow Standard Email Syntax. example@xyz.com")
+      event.preventDefault();
+    }else if(!isNumeric(phonenumber)){
+      window.alert("Your PhoneNumber can only contain Number. Please Try Again")
+      event.preventDefault();
+    }else if(!validDOB(dateofbirth)){
+      window.alert("Your age must be atleast 16 years old to request our services. Please Try Again Later")
+
+      event.preventDefault();
+    }
+    
+    else{
+
+
+    // const { email, password } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, password)
@@ -43,12 +141,13 @@ class Signup extends Component {
 
       })
       .catch(error => {
-        console.log("Error in authentication");
+        console.log("Error in__ authentication");
         this.setState({ error });
       });
 
+    };
     event.preventDefault();
-  };
+  }
 
   onChange = event => {
     console.log(event.target.name);

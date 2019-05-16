@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./SignIn.css";
 import { withRouter } from "react-router-dom";
 import * as ROUTES from "../constants/routes";
-import { userInfo } from "os";
 import firebase from "firebase";
 import { NavLink, Link } from 'react-router-dom';
 const INITIAL_STATE = {
@@ -34,26 +33,23 @@ class SignIn extends Component {
             console.log("VERIFIED");
             this.props.history.push({
               pathname: ROUTES.WELCOME,
-              search: "name=jhon&amp;age=24",
               state: { detail: email }
             });
-
+ 
           } else {
             console.log("NOT VERIFIED");
             alert('Your Email is not verified')
-            this.props.history.push({
-              pathname: ROUTES.LANDING,
-            });
+            window.alert('You have not verified your Email. Try again after verification')
+            return
           }
-
-         
-
+          
           console.log("Successfully log in");
           this.setState({ ...INITIAL_STATE });
         })
         .catch(error => {
           console.log("Error ");
-         alert('Wrong password')
+          window.alert('You have entered an invalid username or password. Please Try Again')
+
 
           this.setState({ error });
         });

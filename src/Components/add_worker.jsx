@@ -131,14 +131,14 @@ class AddWorker extends Component {
         console.log("DONESSS");
       });
 
-      // this.props.history.push({
-      //   pathname: ROUTES.CONFIRMATION,
-      // });
+      this.props.history.push({
+        pathname: ROUTES.ADMIN_REQUESTS,
+      });
 
-      // this.setState({ ...INITIAL_STATE });
+      this.setState({ ...INITIAL_STATE });
       // event.preventDefault();
     }
-    // event.preventDefault()
+
   };
 
   render() {

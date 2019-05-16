@@ -86,9 +86,9 @@ class Request_Completed extends Component {
   }
 
   render() {
-    const display = Object.keys(this.state.requests).map(key => {
+    const display = Object.keys(this.state.requests).map((key,i) => {
       return (
-        <p className="text-left font-weight-bold xyz">
+        <p className="text-left font-weight-bold xyz" key={i}>
           Request ID:{" "}
           <div className="list-inline-item font-weight-normal">
             {this.state.requests[key][0]}

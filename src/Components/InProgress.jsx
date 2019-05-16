@@ -53,7 +53,7 @@ class InProgress extends Component {
     });
   };
 
-  componentWillUnmount() {}
+
 
   render() {
     return (

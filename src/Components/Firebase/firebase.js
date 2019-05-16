@@ -3,6 +3,10 @@ import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
 
+const sleep = milliseconds => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+};
+
 String.prototype.hashCode = function() {
   var hash = 0,
     i,
@@ -28,7 +32,6 @@ const config = {
   storageBucket: "gharkeikaam.appspot.com",
   messagingSenderId: "913134010597"
 };
-
 class Firebase {
   constructor() {
     app.initializeApp(config);
@@ -36,6 +39,7 @@ class Firebase {
     this.auth = app.auth();
     this.database = firebase.firestore();
   }
+  // *** Auth API ***
 
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
@@ -56,8 +60,13 @@ class Firebase {
     return this.database;
   };
 
+  // getdata = dbjson =>{
+  //   var docRef = db.collection("cities").doc("SF")
+  // }
 
   doSaveNewUser = information => {
+    // console.log(information);
+    // console.log("HASHSASA",information.email.hashCode())
     this.database
       .collection("Customers")
       .doc(information.email.hashCode().toString())
@@ -79,6 +88,9 @@ class Firebase {
   };
 
   doSaveNewWorker = async information => {
+    // console.log(information);
+    // console.log("HASHSASA",information.email.hashCode())
+
     this.database
       .collection("Workers")
       .doc(information.cnic.hashCode().toString())
@@ -113,7 +125,6 @@ class Firebase {
       console.log("data not fetched");
     }
   };
-  
   getAdminRequestPending = async () => {
     try {
       let adminrequests = {};
@@ -206,6 +217,14 @@ class Firebase {
           worker_id: worker
         })
         .then(() => {
+          // if (update == "rejected"){
+          //   sleep(5).then(()=>{
+          //     this.database
+          //     .collection("CurrentRequests")
+          //     .doc(key)
+          //     .delete();
+          //   })
+          // }
           console.log("successfully Updated");
         })
         .catch(error => {

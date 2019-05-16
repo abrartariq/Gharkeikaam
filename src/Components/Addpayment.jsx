@@ -16,10 +16,10 @@ class Addpayment extends Component {
                 Status: <div className= "list-inline-item font-weight-normal">Completed</div> <br/>
 			    </p>
                 
-                <div class="form-group payment">
+                <div className="form-group payment">
                     <label for="usr">Add Payment</label>
                     <br/>
-                    <input type="text" class="form-control_N"  id="usr"></input>
+                    <input type="text" className="form-control_N"  id="usr"></input>
                 </div>
 
                 <button type="submit" className="btn btn-primary d">Done</button>

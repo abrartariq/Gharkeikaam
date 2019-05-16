@@ -8,12 +8,6 @@ const INITIAL_STATE = {
   workers: []
 };
 
-function arrayRemove(arr, value) {
-  return arr.filter(function(ele) {
-    return ele != value;
-  });
-}
-
 class WorkersMain extends Component {
   state = {};
   constructor(props) {

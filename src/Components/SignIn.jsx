@@ -44,7 +44,7 @@ class SignIn extends Component {
           }
           
           console.log("Successfully log in");
-          this.setState({ ...INITIAL_STATE });
+          // this.setState({ ...INITIAL_STATE });
         })
         .catch(error => {
           console.log("Error ");

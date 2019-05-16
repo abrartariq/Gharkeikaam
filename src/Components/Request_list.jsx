@@ -113,7 +113,7 @@ class MyRequests extends Component {
             onClick={() =>
               this.handlesort(this.state.adminrequestspending[key][0])
             }
-            class="btn btn-primary s"
+            className="btn btn-primary s"
           >
             View Request
           </button>
@@ -146,7 +146,7 @@ class MyRequests extends Component {
               onClick={() =>
                 this.markcompleted(this.state.adminrequestsinprogress[key][0])
               }
-              class="btn btn-primary s"
+              className="btn btn-primary s"
             >
               View Request
             </button>

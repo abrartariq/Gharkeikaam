@@ -9,7 +9,7 @@ class About extends Component {
             <br></br><br></br>
             <div className="about">
             <div className = "row">
-            <div class="col-12 col-md-8">
+            <div className="col-12 col-md-8">
             <h2>About Us</h2>
             <p align = "left" margin-left="20px">GharKeKaam is a web application that will cater to the regular domestic needs of the residents of Model Town Society, Lahore by providing fully-equipped, 
             professional handy workers like Plumbers, Electricians, Gardeners and Cleaners. It provides a convenient and reliable platform to the society residents to 
@@ -21,7 +21,7 @@ class About extends Component {
              a hassle-free way for the residents of Model Town Society to obtain handy services. Instead of having to look around for reliable handy workers, users can simply 
              request the required service and let GharKeKaam take care of the rest.</p>
              </div>
-             <div class="col-6 col-md-4">
+             <div className="col-6 col-md-4">
              <img src={require('./about.jpg')} className = "img-fluid"></img>
              </div> </div></div>
             </React.Fragment>

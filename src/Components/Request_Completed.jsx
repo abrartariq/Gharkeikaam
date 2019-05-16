@@ -62,7 +62,7 @@ class Request_Completed extends Component {
     }
   };
 
-  componentWillMount() {
+  componentDidMount() {
     console.log("insidehere");
     const self = this;
     console.log(this.props.requestid);
@@ -134,7 +134,7 @@ class Request_Completed extends Component {
       <div className="card bg-light text-dark xyz">
         {display}
 
-        <div class="form-group payment">
+        <div className="form-group payment">
           <label for="usr">Add Payment</label>
           <input
             type="text"

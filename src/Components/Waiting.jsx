@@ -28,7 +28,7 @@ class Waiting extends Component {
     });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     let database = this.props.firebase.getdatabase();
     const self = this;
     database
@@ -45,6 +45,7 @@ class Waiting extends Component {
         }
       });
   }
+
 
   render() {
     return (

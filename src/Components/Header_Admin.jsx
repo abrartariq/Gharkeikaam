@@ -17,6 +17,10 @@ class Header extends Component{
 		    <li className="nav-item">
 		      <NavLink to={ROUTES.WORKERSMAIN} className="nav-link">Workers</NavLink>
 		    </li>
+				<li className="nav-item">
+		      <NavLink to={ROUTES.LANDING} className="nav-link">Logout</NavLink>
+		    </li>
+				
 		  </ul>
 		</nav>
 		)	

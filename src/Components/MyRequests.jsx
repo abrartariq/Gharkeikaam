@@ -34,7 +34,7 @@ class MyRequests extends Component {
 				// console.log("pending")
 					
 					return (
-						<div key={i}>
+						<div className="unique IT is" key={i}>
 	
 						<ul className="list-group">
 							<li className="list-group-item text-left font-weight-bold c">
@@ -55,7 +55,7 @@ class MyRequests extends Component {
 				// console.log("pending")
 					
 					return (
-						<div key={i}>
+						<div className="unique IT is" key={i}>
 	
 						<ul className="list-group">
 							<li className="list-group-item text-left font-weight-bold c">
@@ -75,7 +75,7 @@ class MyRequests extends Component {
 				// Your Rating: 
 					// console.log("COMPLETED")
 					return (
-						<div key={i}>
+						<div className="unique IT is" key={i}>
 
 						<ul className="list-group">
 							<li className="list-group-item text-left font-weight-bold c">

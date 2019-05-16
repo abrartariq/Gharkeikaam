@@ -19,26 +19,32 @@ class ContactUs extends Component {
   onSubmit = event => {
     event.preventDefault();
     const { fullname, email, message } = this.state;
-    var templateParams = {
-      from_name: this.state.fullname + " " + this.state.email,
-      message_html: this.state.message
-    };
+    if (email !== "" && message !== "" && fullname !== "") {
+      var templateParams = {
+        from_name: this.state.fullname + " " + this.state.email,
+        message_html: this.state.message
+      };
 
-	window.alert('Thank you for getting in touch! \n One of our colleagues will get back to you shortly.\n\n Have a great day!')
+      window.alert(
+        "Thank you for getting in touch! \n One of our colleagues will get back to you shortly.\n\n Have a great day!"
+      );
 
-    if(this.props.history.location.state != undefined){
-      let email = this.props.history.location.state.detail
-      this.props.history.push({
-        pathname: ROUTES.WELCOME,
-        state: {detail:email}
-      });
-
+      if (this.props.history.location.state != undefined) {
+        let email = this.props.history.location.state.detail;
+        this.props.history.push({
+          pathname: ROUTES.WELCOME,
+          state: { detail: email }
+        });
+      } else {
+        this.props.history.push({
+          pathname: ROUTES.LANDING
+        });
+      }
     }else{
-      this.props.history.push({
-        pathname: ROUTES.LANDING
-      });
+      window.alert(
+        "ALl Fields Are To Be Filled \n Please Try Again"
+      );      
     }
-
 
     emailjs
       .send(
@@ -52,7 +58,7 @@ class ContactUs extends Component {
           console.log("SUCCESS!", response.status, response.text);
         },
         function(err) {
-			console.log("FAILED...", err);
+          console.log("FAILED...", err);
         }
       );
   };

@@ -32,11 +32,13 @@ class Approve_Request extends Component {
       componentWillMount(){
         console.log('insidehere')
         const self=this
-        console.log(this.props.requestid)
+        console.log("RQ ID",this.props.requestid * 2)
+        let req_id = this.props.requestid.toString()
         const props=this.props
         props.firebase.getrequestdetails(props.requestid).then(function(requestdetails){
+            console.log("loloolo",requestdetails[req_id][1])
             props.firebase.getcustomerdetails(requestdetails[props.requestid][4]).then(function(customerdetails){
-                props.firebase.getworkdetails().then(function(workerdetails){
+                props.firebase.getworkdetails(requestdetails[req_id][1]).then(function(workerdetails){
                     console.log("Requestdetails",requestdetails)
                     self.setState({ requests:requestdetails,workers:workerdetails,customers:customerdetails});
         
@@ -47,13 +49,22 @@ class Approve_Request extends Component {
     }
 
      approved=()=>{
-         console.log('here')
+         console.log('Approved here')
          console.log(this.state.workersassigned)
          let status="inprogress"
         this.props.firebase.dosavepending(this.props.requestid,this.state.workersassigned,status)
         this.props.history.push({
             pathname: ROUTES.ADMIN_REQUESTS
            });
+     }
+     reject=()=>{
+         console.log('Reject here')
+         console.log(this.state.workersassigned)
+         let status="rejected"
+        this.props.firebase.dosavepending(this.props.requestid,this.state.workersassigned,status)
+        this.props.history.push({
+            pathname: ROUTES.ADMIN_REQUESTS
+        });
      }
 
 	render() { 
@@ -110,7 +121,7 @@ class Approve_Request extends Component {
                 </div>
                 <div className="container text-left">
                     <button type="button" onClick={() => this.approved()}  className="btn btn-primary a">Approve Request</button>
-                    <button type="button" className="btn btn-primary b">Reject Request</button>
+                    <button type="button" onClick={() => this.reject()} className="btn btn-primary b">Reject Request</button>
                 </div>
             </div>
 		);

@@ -5,6 +5,11 @@
     font-weight: bold;
 }
 
+.form-control_N{
+    width: 100%;
+
+}
+
 .btn.btn-primary.d{
     width: 30%;
     margin-bottom: 5%;

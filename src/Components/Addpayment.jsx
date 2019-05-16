@@ -18,7 +18,8 @@ class Addpayment extends Component {
                 
                 <div class="form-group payment">
                     <label for="usr">Add Payment</label>
-                    <input type="text" class="form-control" id="usr"></input>
+                    <br/>
+                    <input type="text" class="form-control_N"  id="usr"></input>
                 </div>
 
                 <button type="submit" className="btn btn-primary d">Done</button>

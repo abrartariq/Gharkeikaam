@@ -142,19 +142,21 @@ class AddWorker extends Component {
           <br />
           <div className="form-group">
             <div className="file-field">
-              <div className="z-depth-1-half mb-4">
+              <div className="NewClass79">
                 <img
                   src={require("./worker.png")}
                   className="img-fluid-worker"
                   alt="example placeholder"
                 />
-                <br />
+                
+                
               </div>
               {/* <div className="d-flex justify-content-center">
                 <div className="btn btn-mdb-color btn-rounded float-left">
                   <input type="file" />
                 </div>
               </div> */}
+              
             </div>
           </div>
           <div className="form-group">
